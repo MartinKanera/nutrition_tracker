@@ -1,7 +1,11 @@
 {
     "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
+    "navigatorOverviewLabel": "Overview",
+    "@navigatorOverviewLabel": {
+        "description": "Label for the overview tab in the bottom navigation bar"
+    },
+    "navigatorProfileLabel": "Profile",
+    "@navigatorProfileLabel": {
+        "description": "Label for the profile tab in the bottom navigation bar"
     }
 }
