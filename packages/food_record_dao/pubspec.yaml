@@ -1,0 +1,21 @@
+name: food_record_dao
+description: Food Record DAO package for Nutrition Tracker
+version: 0.1.0+1
+publish_to: none
+
+publish_from_workspace: true
+
+resolution: workspace
+
+environment:
+  sdk: ^3.5.0
+  flutter: ^3.24.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  isar: ^3.1.0+1
+  isar_flutter_libs: ^3.1.0+1
+
+dev_dependencies:
+  isar_generator: ^3.1.0+1
