@@ -13,6 +13,7 @@ class FoodRecordEntity {
     required this.carbsPer100g,
     required this.fatPer100g,
     required this.date,
+    required this.mealType,
   });
 
   final Id id;
@@ -23,4 +24,5 @@ class FoodRecordEntity {
   final double carbsPer100g;
   final double fatPer100g;
   final DateTime date;
+  final int mealType;
 }

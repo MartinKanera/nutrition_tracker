@@ -42,13 +42,18 @@ const FoodRecordEntitySchema = CollectionSchema(
       name: r'grams',
       type: IsarType.double,
     ),
-    r'name': PropertySchema(
+    r'mealType': PropertySchema(
       id: 5,
+      name: r'mealType',
+      type: IsarType.long,
+    ),
+    r'name': PropertySchema(
+      id: 6,
       name: r'name',
       type: IsarType.string,
     ),
     r'proteinPer100g': PropertySchema(
-      id: 6,
+      id: 7,
       name: r'proteinPer100g',
       type: IsarType.double,
     )
@@ -88,8 +93,9 @@ void _foodRecordEntitySerialize(
   writer.writeDateTime(offsets[2], object.date);
   writer.writeDouble(offsets[3], object.fatPer100g);
   writer.writeDouble(offsets[4], object.grams);
-  writer.writeString(offsets[5], object.name);
-  writer.writeDouble(offsets[6], object.proteinPer100g);
+  writer.writeLong(offsets[5], object.mealType);
+  writer.writeString(offsets[6], object.name);
+  writer.writeDouble(offsets[7], object.proteinPer100g);
 }
 
 FoodRecordEntity _foodRecordEntityDeserialize(
@@ -105,8 +111,9 @@ FoodRecordEntity _foodRecordEntityDeserialize(
     fatPer100g: reader.readDouble(offsets[3]),
     grams: reader.readDouble(offsets[4]),
     id: id,
-    name: reader.readString(offsets[5]),
-    proteinPer100g: reader.readDouble(offsets[6]),
+    mealType: reader.readLong(offsets[5]),
+    name: reader.readString(offsets[6]),
+    proteinPer100g: reader.readDouble(offsets[7]),
   );
   return object;
 }
@@ -129,8 +136,10 @@ P _foodRecordEntityDeserializeProp<P>(
     case 4:
       return (reader.readDouble(offset)) as P;
     case 5:
-      return (reader.readString(offset)) as P;
+      return (reader.readLong(offset)) as P;
     case 6:
+      return (reader.readString(offset)) as P;
+    case 7:
       return (reader.readDouble(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
@@ -606,6 +615,62 @@ extension FoodRecordEntityQueryFilter
   }
 
   QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
+      mealTypeEqualTo(int value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'mealType',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
+      mealTypeGreaterThan(
+    int value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'mealType',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
+      mealTypeLessThan(
+    int value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'mealType',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
+      mealTypeBetween(
+    int lower,
+    int upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'mealType',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+      ));
+    });
+  }
+
+  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
       nameEqualTo(
     String value, {
     bool caseSensitive = true,
@@ -884,6 +949,20 @@ extension FoodRecordEntityQuerySortBy
     });
   }
 
+  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
+      sortByMealType() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'mealType', Sort.asc);
+    });
+  }
+
+  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
+      sortByMealTypeDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'mealType', Sort.desc);
+    });
+  }
+
   QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy> sortByName() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'name', Sort.asc);
@@ -995,6 +1074,20 @@ extension FoodRecordEntityQuerySortThenBy
     });
   }
 
+  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
+      thenByMealType() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'mealType', Sort.asc);
+    });
+  }
+
+  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
+      thenByMealTypeDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'mealType', Sort.desc);
+    });
+  }
+
   QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy> thenByName() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'name', Sort.asc);
@@ -1059,6 +1152,13 @@ extension FoodRecordEntityQueryWhereDistinct
     });
   }
 
+  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QDistinct>
+      distinctByMealType() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'mealType');
+    });
+  }
+
   QueryBuilder<FoodRecordEntity, FoodRecordEntity, QDistinct> distinctByName(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
@@ -1112,6 +1212,12 @@ extension FoodRecordEntityQueryProperty
   QueryBuilder<FoodRecordEntity, double, QQueryOperations> gramsProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'grams');
+    });
+  }
+
+  QueryBuilder<FoodRecordEntity, int, QQueryOperations> mealTypeProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'mealType');
     });
   }
 

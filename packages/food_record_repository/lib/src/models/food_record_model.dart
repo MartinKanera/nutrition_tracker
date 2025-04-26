@@ -1,3 +1,4 @@
+import 'package:food_record_repository/src/models/meal_type.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:food_record_dao/food_record_dao.dart';
 
@@ -14,6 +15,7 @@ sealed class FoodRecord with _$FoodRecord {
     required double carbsPer100g,
     required double fatPer100g,
     required DateTime date,
+    required MealType mealType,
   }) = _FoodRecord;
 }
 
@@ -28,11 +30,12 @@ extension FoodRecordEntityExtension on FoodRecordEntity {
       carbsPer100g: carbsPer100g,
       fatPer100g: fatPer100g,
       date: date,
+      mealType: MealType.values[mealType],
     );
   }
 }
 
-extension FoodRecordX on FoodRecord {
+extension FoodRecordExtension on FoodRecord {
   FoodRecordEntity toEntity() {
     return FoodRecordEntity(
       id: id,
@@ -43,6 +46,7 @@ extension FoodRecordX on FoodRecord {
       carbsPer100g: carbsPer100g,
       fatPer100g: fatPer100g,
       date: date,
+      mealType: mealType.index,
     );
   }
 }

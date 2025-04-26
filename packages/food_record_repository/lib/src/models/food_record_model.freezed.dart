@@ -24,6 +24,7 @@ mixin _$FoodRecord {
   double get carbsPer100g => throw _privateConstructorUsedError;
   double get fatPer100g => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
+  MealType get mealType => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FoodRecordCopyWith<FoodRecord> get copyWith =>
@@ -44,7 +45,8 @@ abstract class $FoodRecordCopyWith<$Res> {
       double proteinPer100g,
       double carbsPer100g,
       double fatPer100g,
-      DateTime date});
+      DateTime date,
+      MealType mealType});
 }
 
 /// @nodoc
@@ -68,6 +70,7 @@ class _$FoodRecordCopyWithImpl<$Res, $Val extends FoodRecord>
     Object? carbsPer100g = null,
     Object? fatPer100g = null,
     Object? date = null,
+    Object? mealType = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -102,6 +105,10 @@ class _$FoodRecordCopyWithImpl<$Res, $Val extends FoodRecord>
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      mealType: null == mealType
+          ? _value.mealType
+          : mealType // ignore: cast_nullable_to_non_nullable
+              as MealType,
     ) as $Val);
   }
 }
@@ -122,7 +129,8 @@ abstract class _$$FoodRecordImplCopyWith<$Res>
       double proteinPer100g,
       double carbsPer100g,
       double fatPer100g,
-      DateTime date});
+      DateTime date,
+      MealType mealType});
 }
 
 /// @nodoc
@@ -144,6 +152,7 @@ class __$$FoodRecordImplCopyWithImpl<$Res>
     Object? carbsPer100g = null,
     Object? fatPer100g = null,
     Object? date = null,
+    Object? mealType = null,
   }) {
     return _then(_$FoodRecordImpl(
       id: null == id
@@ -178,6 +187,10 @@ class __$$FoodRecordImplCopyWithImpl<$Res>
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      mealType: null == mealType
+          ? _value.mealType
+          : mealType // ignore: cast_nullable_to_non_nullable
+              as MealType,
     ));
   }
 }
@@ -193,7 +206,8 @@ class _$FoodRecordImpl implements _FoodRecord {
       required this.proteinPer100g,
       required this.carbsPer100g,
       required this.fatPer100g,
-      required this.date});
+      required this.date,
+      required this.mealType});
 
   @override
   final int id;
@@ -211,10 +225,12 @@ class _$FoodRecordImpl implements _FoodRecord {
   final double fatPer100g;
   @override
   final DateTime date;
+  @override
+  final MealType mealType;
 
   @override
   String toString() {
-    return 'FoodRecord(id: $id, name: $name, grams: $grams, caloriesPer100g: $caloriesPer100g, proteinPer100g: $proteinPer100g, carbsPer100g: $carbsPer100g, fatPer100g: $fatPer100g, date: $date)';
+    return 'FoodRecord(id: $id, name: $name, grams: $grams, caloriesPer100g: $caloriesPer100g, proteinPer100g: $proteinPer100g, carbsPer100g: $carbsPer100g, fatPer100g: $fatPer100g, date: $date, mealType: $mealType)';
   }
 
   @override
@@ -233,12 +249,14 @@ class _$FoodRecordImpl implements _FoodRecord {
                 other.carbsPer100g == carbsPer100g) &&
             (identical(other.fatPer100g, fatPer100g) ||
                 other.fatPer100g == fatPer100g) &&
-            (identical(other.date, date) || other.date == date));
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.mealType, mealType) ||
+                other.mealType == mealType));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, id, name, grams, caloriesPer100g,
-      proteinPer100g, carbsPer100g, fatPer100g, date);
+      proteinPer100g, carbsPer100g, fatPer100g, date, mealType);
 
   @JsonKey(ignore: true)
   @override
@@ -256,7 +274,8 @@ abstract class _FoodRecord implements FoodRecord {
       required final double proteinPer100g,
       required final double carbsPer100g,
       required final double fatPer100g,
-      required final DateTime date}) = _$FoodRecordImpl;
+      required final DateTime date,
+      required final MealType mealType}) = _$FoodRecordImpl;
 
   @override
   int get id;
@@ -274,6 +293,8 @@ abstract class _FoodRecord implements FoodRecord {
   double get fatPer100g;
   @override
   DateTime get date;
+  @override
+  MealType get mealType;
   @override
   @JsonKey(ignore: true)
   _$$FoodRecordImplCopyWith<_$FoodRecordImpl> get copyWith =>
