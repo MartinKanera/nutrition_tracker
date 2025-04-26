@@ -7,7 +7,11 @@ class UserMeasurementRepository {
   final UserMeasurementDao _dao;
 
   Future<UserMeasurement?> getWeightForDay(DateTime date) async {
-    final record = await _dao.getFirstRecordByDay(date);
+    var record = await _dao.getFirstRecordByDay(date);
+    // Try to get the latest record if no record was found for the day
+    // especially useful for going into past
+    record ??= await _dao.getLatestRecordByDay();
+
     return record?.toModel();
   }
 }

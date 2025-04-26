@@ -19,16 +19,25 @@ class MockSeeder {
         UserMeasurementEntity(
           id: 1,
           weight: 83.5,
+          height: 184,
+          age: 23,
+          activityLevelIndex: 2,
           date: now.subtract(const Duration(days: 2)),
         ),
         UserMeasurementEntity(
           id: 2,
           weight: 82.8,
+          height: 184,
+          age: 23,
+          activityLevelIndex: 2,
           date: now.subtract(const Duration(days: 1)),
         ),
         UserMeasurementEntity(
           id: 3,
           weight: 82.5,
+          height: 184,
+          age: 23,
+          activityLevelIndex: 2,
           date: now,
         ),
       ]);
