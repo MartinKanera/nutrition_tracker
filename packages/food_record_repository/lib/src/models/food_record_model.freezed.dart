@@ -19,13 +19,13 @@ mixin _$FoodRecord {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   double get grams => throw _privateConstructorUsedError;
-  double get caloriesPer100g => throw _privateConstructorUsedError;
-  double get proteinPer100g => throw _privateConstructorUsedError;
-  double get carbsPer100g => throw _privateConstructorUsedError;
-  double get fatPer100g => throw _privateConstructorUsedError;
-  double get saturatedFatPer100g => throw _privateConstructorUsedError;
-  double get fiberPer100g => throw _privateConstructorUsedError;
-  double get sugarsPer100g => throw _privateConstructorUsedError;
+  double get calories => throw _privateConstructorUsedError;
+  double get protein => throw _privateConstructorUsedError;
+  double get carbs => throw _privateConstructorUsedError;
+  double get fat => throw _privateConstructorUsedError;
+  double get saturatedFat => throw _privateConstructorUsedError;
+  double get fiber => throw _privateConstructorUsedError;
+  double get sugars => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
   MealType get mealType => throw _privateConstructorUsedError;
 
@@ -44,13 +44,13 @@ abstract class $FoodRecordCopyWith<$Res> {
       {int id,
       String name,
       double grams,
-      double caloriesPer100g,
-      double proteinPer100g,
-      double carbsPer100g,
-      double fatPer100g,
-      double saturatedFatPer100g,
-      double fiberPer100g,
-      double sugarsPer100g,
+      double calories,
+      double protein,
+      double carbs,
+      double fat,
+      double saturatedFat,
+      double fiber,
+      double sugars,
       DateTime date,
       MealType mealType});
 }
@@ -71,13 +71,13 @@ class _$FoodRecordCopyWithImpl<$Res, $Val extends FoodRecord>
     Object? id = null,
     Object? name = null,
     Object? grams = null,
-    Object? caloriesPer100g = null,
-    Object? proteinPer100g = null,
-    Object? carbsPer100g = null,
-    Object? fatPer100g = null,
-    Object? saturatedFatPer100g = null,
-    Object? fiberPer100g = null,
-    Object? sugarsPer100g = null,
+    Object? calories = null,
+    Object? protein = null,
+    Object? carbs = null,
+    Object? fat = null,
+    Object? saturatedFat = null,
+    Object? fiber = null,
+    Object? sugars = null,
     Object? date = null,
     Object? mealType = null,
   }) {
@@ -94,33 +94,33 @@ class _$FoodRecordCopyWithImpl<$Res, $Val extends FoodRecord>
           ? _value.grams
           : grams // ignore: cast_nullable_to_non_nullable
               as double,
-      caloriesPer100g: null == caloriesPer100g
-          ? _value.caloriesPer100g
-          : caloriesPer100g // ignore: cast_nullable_to_non_nullable
+      calories: null == calories
+          ? _value.calories
+          : calories // ignore: cast_nullable_to_non_nullable
               as double,
-      proteinPer100g: null == proteinPer100g
-          ? _value.proteinPer100g
-          : proteinPer100g // ignore: cast_nullable_to_non_nullable
+      protein: null == protein
+          ? _value.protein
+          : protein // ignore: cast_nullable_to_non_nullable
               as double,
-      carbsPer100g: null == carbsPer100g
-          ? _value.carbsPer100g
-          : carbsPer100g // ignore: cast_nullable_to_non_nullable
+      carbs: null == carbs
+          ? _value.carbs
+          : carbs // ignore: cast_nullable_to_non_nullable
               as double,
-      fatPer100g: null == fatPer100g
-          ? _value.fatPer100g
-          : fatPer100g // ignore: cast_nullable_to_non_nullable
+      fat: null == fat
+          ? _value.fat
+          : fat // ignore: cast_nullable_to_non_nullable
               as double,
-      saturatedFatPer100g: null == saturatedFatPer100g
-          ? _value.saturatedFatPer100g
-          : saturatedFatPer100g // ignore: cast_nullable_to_non_nullable
+      saturatedFat: null == saturatedFat
+          ? _value.saturatedFat
+          : saturatedFat // ignore: cast_nullable_to_non_nullable
               as double,
-      fiberPer100g: null == fiberPer100g
-          ? _value.fiberPer100g
-          : fiberPer100g // ignore: cast_nullable_to_non_nullable
+      fiber: null == fiber
+          ? _value.fiber
+          : fiber // ignore: cast_nullable_to_non_nullable
               as double,
-      sugarsPer100g: null == sugarsPer100g
-          ? _value.sugarsPer100g
-          : sugarsPer100g // ignore: cast_nullable_to_non_nullable
+      sugars: null == sugars
+          ? _value.sugars
+          : sugars // ignore: cast_nullable_to_non_nullable
               as double,
       date: null == date
           ? _value.date
@@ -146,13 +146,13 @@ abstract class _$$FoodRecordImplCopyWith<$Res>
       {int id,
       String name,
       double grams,
-      double caloriesPer100g,
-      double proteinPer100g,
-      double carbsPer100g,
-      double fatPer100g,
-      double saturatedFatPer100g,
-      double fiberPer100g,
-      double sugarsPer100g,
+      double calories,
+      double protein,
+      double carbs,
+      double fat,
+      double saturatedFat,
+      double fiber,
+      double sugars,
       DateTime date,
       MealType mealType});
 }
@@ -171,13 +171,13 @@ class __$$FoodRecordImplCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
     Object? grams = null,
-    Object? caloriesPer100g = null,
-    Object? proteinPer100g = null,
-    Object? carbsPer100g = null,
-    Object? fatPer100g = null,
-    Object? saturatedFatPer100g = null,
-    Object? fiberPer100g = null,
-    Object? sugarsPer100g = null,
+    Object? calories = null,
+    Object? protein = null,
+    Object? carbs = null,
+    Object? fat = null,
+    Object? saturatedFat = null,
+    Object? fiber = null,
+    Object? sugars = null,
     Object? date = null,
     Object? mealType = null,
   }) {
@@ -194,33 +194,33 @@ class __$$FoodRecordImplCopyWithImpl<$Res>
           ? _value.grams
           : grams // ignore: cast_nullable_to_non_nullable
               as double,
-      caloriesPer100g: null == caloriesPer100g
-          ? _value.caloriesPer100g
-          : caloriesPer100g // ignore: cast_nullable_to_non_nullable
+      calories: null == calories
+          ? _value.calories
+          : calories // ignore: cast_nullable_to_non_nullable
               as double,
-      proteinPer100g: null == proteinPer100g
-          ? _value.proteinPer100g
-          : proteinPer100g // ignore: cast_nullable_to_non_nullable
+      protein: null == protein
+          ? _value.protein
+          : protein // ignore: cast_nullable_to_non_nullable
               as double,
-      carbsPer100g: null == carbsPer100g
-          ? _value.carbsPer100g
-          : carbsPer100g // ignore: cast_nullable_to_non_nullable
+      carbs: null == carbs
+          ? _value.carbs
+          : carbs // ignore: cast_nullable_to_non_nullable
               as double,
-      fatPer100g: null == fatPer100g
-          ? _value.fatPer100g
-          : fatPer100g // ignore: cast_nullable_to_non_nullable
+      fat: null == fat
+          ? _value.fat
+          : fat // ignore: cast_nullable_to_non_nullable
               as double,
-      saturatedFatPer100g: null == saturatedFatPer100g
-          ? _value.saturatedFatPer100g
-          : saturatedFatPer100g // ignore: cast_nullable_to_non_nullable
+      saturatedFat: null == saturatedFat
+          ? _value.saturatedFat
+          : saturatedFat // ignore: cast_nullable_to_non_nullable
               as double,
-      fiberPer100g: null == fiberPer100g
-          ? _value.fiberPer100g
-          : fiberPer100g // ignore: cast_nullable_to_non_nullable
+      fiber: null == fiber
+          ? _value.fiber
+          : fiber // ignore: cast_nullable_to_non_nullable
               as double,
-      sugarsPer100g: null == sugarsPer100g
-          ? _value.sugarsPer100g
-          : sugarsPer100g // ignore: cast_nullable_to_non_nullable
+      sugars: null == sugars
+          ? _value.sugars
+          : sugars // ignore: cast_nullable_to_non_nullable
               as double,
       date: null == date
           ? _value.date
@@ -241,13 +241,13 @@ class _$FoodRecordImpl implements _FoodRecord {
       {required this.id,
       required this.name,
       required this.grams,
-      required this.caloriesPer100g,
-      required this.proteinPer100g,
-      required this.carbsPer100g,
-      required this.fatPer100g,
-      required this.saturatedFatPer100g,
-      required this.fiberPer100g,
-      required this.sugarsPer100g,
+      required this.calories,
+      required this.protein,
+      required this.carbs,
+      required this.fat,
+      required this.saturatedFat,
+      required this.fiber,
+      required this.sugars,
       required this.date,
       required this.mealType});
 
@@ -258,19 +258,19 @@ class _$FoodRecordImpl implements _FoodRecord {
   @override
   final double grams;
   @override
-  final double caloriesPer100g;
+  final double calories;
   @override
-  final double proteinPer100g;
+  final double protein;
   @override
-  final double carbsPer100g;
+  final double carbs;
   @override
-  final double fatPer100g;
+  final double fat;
   @override
-  final double saturatedFatPer100g;
+  final double saturatedFat;
   @override
-  final double fiberPer100g;
+  final double fiber;
   @override
-  final double sugarsPer100g;
+  final double sugars;
   @override
   final DateTime date;
   @override
@@ -278,7 +278,7 @@ class _$FoodRecordImpl implements _FoodRecord {
 
   @override
   String toString() {
-    return 'FoodRecord(id: $id, name: $name, grams: $grams, caloriesPer100g: $caloriesPer100g, proteinPer100g: $proteinPer100g, carbsPer100g: $carbsPer100g, fatPer100g: $fatPer100g, saturatedFatPer100g: $saturatedFatPer100g, fiberPer100g: $fiberPer100g, sugarsPer100g: $sugarsPer100g, date: $date, mealType: $mealType)';
+    return 'FoodRecord(id: $id, name: $name, grams: $grams, calories: $calories, protein: $protein, carbs: $carbs, fat: $fat, saturatedFat: $saturatedFat, fiber: $fiber, sugars: $sugars, date: $date, mealType: $mealType)';
   }
 
   @override
@@ -289,40 +289,23 @@ class _$FoodRecordImpl implements _FoodRecord {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.grams, grams) || other.grams == grams) &&
-            (identical(other.caloriesPer100g, caloriesPer100g) ||
-                other.caloriesPer100g == caloriesPer100g) &&
-            (identical(other.proteinPer100g, proteinPer100g) ||
-                other.proteinPer100g == proteinPer100g) &&
-            (identical(other.carbsPer100g, carbsPer100g) ||
-                other.carbsPer100g == carbsPer100g) &&
-            (identical(other.fatPer100g, fatPer100g) ||
-                other.fatPer100g == fatPer100g) &&
-            (identical(other.saturatedFatPer100g, saturatedFatPer100g) ||
-                other.saturatedFatPer100g == saturatedFatPer100g) &&
-            (identical(other.fiberPer100g, fiberPer100g) ||
-                other.fiberPer100g == fiberPer100g) &&
-            (identical(other.sugarsPer100g, sugarsPer100g) ||
-                other.sugarsPer100g == sugarsPer100g) &&
+            (identical(other.calories, calories) ||
+                other.calories == calories) &&
+            (identical(other.protein, protein) || other.protein == protein) &&
+            (identical(other.carbs, carbs) || other.carbs == carbs) &&
+            (identical(other.fat, fat) || other.fat == fat) &&
+            (identical(other.saturatedFat, saturatedFat) ||
+                other.saturatedFat == saturatedFat) &&
+            (identical(other.fiber, fiber) || other.fiber == fiber) &&
+            (identical(other.sugars, sugars) || other.sugars == sugars) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.mealType, mealType) ||
                 other.mealType == mealType));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      name,
-      grams,
-      caloriesPer100g,
-      proteinPer100g,
-      carbsPer100g,
-      fatPer100g,
-      saturatedFatPer100g,
-      fiberPer100g,
-      sugarsPer100g,
-      date,
-      mealType);
+  int get hashCode => Object.hash(runtimeType, id, name, grams, calories,
+      protein, carbs, fat, saturatedFat, fiber, sugars, date, mealType);
 
   @JsonKey(ignore: true)
   @override
@@ -336,13 +319,13 @@ abstract class _FoodRecord implements FoodRecord {
       {required final int id,
       required final String name,
       required final double grams,
-      required final double caloriesPer100g,
-      required final double proteinPer100g,
-      required final double carbsPer100g,
-      required final double fatPer100g,
-      required final double saturatedFatPer100g,
-      required final double fiberPer100g,
-      required final double sugarsPer100g,
+      required final double calories,
+      required final double protein,
+      required final double carbs,
+      required final double fat,
+      required final double saturatedFat,
+      required final double fiber,
+      required final double sugars,
       required final DateTime date,
       required final MealType mealType}) = _$FoodRecordImpl;
 
@@ -353,19 +336,19 @@ abstract class _FoodRecord implements FoodRecord {
   @override
   double get grams;
   @override
-  double get caloriesPer100g;
+  double get calories;
   @override
-  double get proteinPer100g;
+  double get protein;
   @override
-  double get carbsPer100g;
+  double get carbs;
   @override
-  double get fatPer100g;
+  double get fat;
   @override
-  double get saturatedFatPer100g;
+  double get saturatedFat;
   @override
-  double get fiberPer100g;
+  double get fiber;
   @override
-  double get sugarsPer100g;
+  double get sugars;
   @override
   DateTime get date;
   @override

@@ -18,6 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$UserMeasurement {
   int get id => throw _privateConstructorUsedError;
   double get weight => throw _privateConstructorUsedError;
+  double get height => throw _privateConstructorUsedError;
+  int get age => throw _privateConstructorUsedError;
+  ActivityLevel get activityLevel => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -31,7 +34,13 @@ abstract class $UserMeasurementCopyWith<$Res> {
           UserMeasurement value, $Res Function(UserMeasurement) then) =
       _$UserMeasurementCopyWithImpl<$Res, UserMeasurement>;
   @useResult
-  $Res call({int id, double weight, DateTime date});
+  $Res call(
+      {int id,
+      double weight,
+      double height,
+      int age,
+      ActivityLevel activityLevel,
+      DateTime date});
 }
 
 /// @nodoc
@@ -49,6 +58,9 @@ class _$UserMeasurementCopyWithImpl<$Res, $Val extends UserMeasurement>
   $Res call({
     Object? id = null,
     Object? weight = null,
+    Object? height = null,
+    Object? age = null,
+    Object? activityLevel = null,
     Object? date = null,
   }) {
     return _then(_value.copyWith(
@@ -60,6 +72,18 @@ class _$UserMeasurementCopyWithImpl<$Res, $Val extends UserMeasurement>
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
               as double,
+      height: null == height
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as double,
+      age: null == age
+          ? _value.age
+          : age // ignore: cast_nullable_to_non_nullable
+              as int,
+      activityLevel: null == activityLevel
+          ? _value.activityLevel
+          : activityLevel // ignore: cast_nullable_to_non_nullable
+              as ActivityLevel,
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -76,7 +100,13 @@ abstract class _$$UserMeasurementImplCopyWith<$Res>
       __$$UserMeasurementImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, double weight, DateTime date});
+  $Res call(
+      {int id,
+      double weight,
+      double height,
+      int age,
+      ActivityLevel activityLevel,
+      DateTime date});
 }
 
 /// @nodoc
@@ -92,6 +122,9 @@ class __$$UserMeasurementImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? weight = null,
+    Object? height = null,
+    Object? age = null,
+    Object? activityLevel = null,
     Object? date = null,
   }) {
     return _then(_$UserMeasurementImpl(
@@ -103,6 +136,18 @@ class __$$UserMeasurementImplCopyWithImpl<$Res>
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
               as double,
+      height: null == height
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as double,
+      age: null == age
+          ? _value.age
+          : age // ignore: cast_nullable_to_non_nullable
+              as int,
+      activityLevel: null == activityLevel
+          ? _value.activityLevel
+          : activityLevel // ignore: cast_nullable_to_non_nullable
+              as ActivityLevel,
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -115,18 +160,29 @@ class __$$UserMeasurementImplCopyWithImpl<$Res>
 
 class _$UserMeasurementImpl implements _UserMeasurement {
   const _$UserMeasurementImpl(
-      {required this.id, required this.weight, required this.date});
+      {required this.id,
+      required this.weight,
+      required this.height,
+      required this.age,
+      required this.activityLevel,
+      required this.date});
 
   @override
   final int id;
   @override
   final double weight;
   @override
+  final double height;
+  @override
+  final int age;
+  @override
+  final ActivityLevel activityLevel;
+  @override
   final DateTime date;
 
   @override
   String toString() {
-    return 'UserMeasurement(id: $id, weight: $weight, date: $date)';
+    return 'UserMeasurement(id: $id, weight: $weight, height: $height, age: $age, activityLevel: $activityLevel, date: $date)';
   }
 
   @override
@@ -136,11 +192,16 @@ class _$UserMeasurementImpl implements _UserMeasurement {
             other is _$UserMeasurementImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.weight, weight) || other.weight == weight) &&
+            (identical(other.height, height) || other.height == height) &&
+            (identical(other.age, age) || other.age == age) &&
+            (identical(other.activityLevel, activityLevel) ||
+                other.activityLevel == activityLevel) &&
             (identical(other.date, date) || other.date == date));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, weight, date);
+  int get hashCode =>
+      Object.hash(runtimeType, id, weight, height, age, activityLevel, date);
 
   @JsonKey(ignore: true)
   @override
@@ -154,12 +215,21 @@ abstract class _UserMeasurement implements UserMeasurement {
   const factory _UserMeasurement(
       {required final int id,
       required final double weight,
+      required final double height,
+      required final int age,
+      required final ActivityLevel activityLevel,
       required final DateTime date}) = _$UserMeasurementImpl;
 
   @override
   int get id;
   @override
   double get weight;
+  @override
+  double get height;
+  @override
+  int get age;
+  @override
+  ActivityLevel get activityLevel;
   @override
   DateTime get date;
   @override

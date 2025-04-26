@@ -18,13 +18,28 @@ const UserMeasurementEntitySchema = CollectionSchema(
   name: r'UserMeasurementEntity',
   id: -2791106000770052512,
   properties: {
-    r'date': PropertySchema(
+    r'activityLevelIndex': PropertySchema(
       id: 0,
+      name: r'activityLevelIndex',
+      type: IsarType.long,
+    ),
+    r'age': PropertySchema(
+      id: 1,
+      name: r'age',
+      type: IsarType.long,
+    ),
+    r'date': PropertySchema(
+      id: 2,
       name: r'date',
       type: IsarType.dateTime,
     ),
+    r'height': PropertySchema(
+      id: 3,
+      name: r'height',
+      type: IsarType.double,
+    ),
     r'weight': PropertySchema(
-      id: 1,
+      id: 4,
       name: r'weight',
       type: IsarType.double,
     )
@@ -58,8 +73,11 @@ void _userMeasurementEntitySerialize(
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
-  writer.writeDateTime(offsets[0], object.date);
-  writer.writeDouble(offsets[1], object.weight);
+  writer.writeLong(offsets[0], object.activityLevelIndex);
+  writer.writeLong(offsets[1], object.age);
+  writer.writeDateTime(offsets[2], object.date);
+  writer.writeDouble(offsets[3], object.height);
+  writer.writeDouble(offsets[4], object.weight);
 }
 
 UserMeasurementEntity _userMeasurementEntityDeserialize(
@@ -69,9 +87,12 @@ UserMeasurementEntity _userMeasurementEntityDeserialize(
   Map<Type, List<int>> allOffsets,
 ) {
   final object = UserMeasurementEntity(
-    date: reader.readDateTime(offsets[0]),
+    activityLevelIndex: reader.readLong(offsets[0]),
+    age: reader.readLong(offsets[1]),
+    date: reader.readDateTime(offsets[2]),
+    height: reader.readDouble(offsets[3]),
     id: id,
-    weight: reader.readDouble(offsets[1]),
+    weight: reader.readDouble(offsets[4]),
   );
   return object;
 }
@@ -84,8 +105,14 @@ P _userMeasurementEntityDeserializeProp<P>(
 ) {
   switch (propertyId) {
     case 0:
-      return (reader.readDateTime(offset)) as P;
+      return (reader.readLong(offset)) as P;
     case 1:
+      return (reader.readLong(offset)) as P;
+    case 2:
+      return (reader.readDateTime(offset)) as P;
+    case 3:
+      return (reader.readDouble(offset)) as P;
+    case 4:
       return (reader.readDouble(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
@@ -188,6 +215,118 @@ extension UserMeasurementEntityQueryWhere on QueryBuilder<UserMeasurementEntity,
 extension UserMeasurementEntityQueryFilter on QueryBuilder<
     UserMeasurementEntity, UserMeasurementEntity, QFilterCondition> {
   QueryBuilder<UserMeasurementEntity, UserMeasurementEntity,
+      QAfterFilterCondition> activityLevelIndexEqualTo(int value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'activityLevelIndex',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, UserMeasurementEntity,
+      QAfterFilterCondition> activityLevelIndexGreaterThan(
+    int value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'activityLevelIndex',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, UserMeasurementEntity,
+      QAfterFilterCondition> activityLevelIndexLessThan(
+    int value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'activityLevelIndex',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, UserMeasurementEntity,
+      QAfterFilterCondition> activityLevelIndexBetween(
+    int lower,
+    int upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'activityLevelIndex',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+      ));
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, UserMeasurementEntity,
+      QAfterFilterCondition> ageEqualTo(int value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'age',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, UserMeasurementEntity,
+      QAfterFilterCondition> ageGreaterThan(
+    int value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'age',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, UserMeasurementEntity,
+      QAfterFilterCondition> ageLessThan(
+    int value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'age',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, UserMeasurementEntity,
+      QAfterFilterCondition> ageBetween(
+    int lower,
+    int upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'age',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+      ));
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, UserMeasurementEntity,
       QAfterFilterCondition> dateEqualTo(DateTime value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
@@ -239,6 +378,72 @@ extension UserMeasurementEntityQueryFilter on QueryBuilder<
         includeLower: includeLower,
         upper: upper,
         includeUpper: includeUpper,
+      ));
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, UserMeasurementEntity,
+      QAfterFilterCondition> heightEqualTo(
+    double value, {
+    double epsilon = Query.epsilon,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'height',
+        value: value,
+        epsilon: epsilon,
+      ));
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, UserMeasurementEntity,
+      QAfterFilterCondition> heightGreaterThan(
+    double value, {
+    bool include = false,
+    double epsilon = Query.epsilon,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'height',
+        value: value,
+        epsilon: epsilon,
+      ));
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, UserMeasurementEntity,
+      QAfterFilterCondition> heightLessThan(
+    double value, {
+    bool include = false,
+    double epsilon = Query.epsilon,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'height',
+        value: value,
+        epsilon: epsilon,
+      ));
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, UserMeasurementEntity,
+      QAfterFilterCondition> heightBetween(
+    double lower,
+    double upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    double epsilon = Query.epsilon,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'height',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        epsilon: epsilon,
       ));
     });
   }
@@ -375,6 +580,34 @@ extension UserMeasurementEntityQueryLinks on QueryBuilder<UserMeasurementEntity,
 extension UserMeasurementEntityQuerySortBy
     on QueryBuilder<UserMeasurementEntity, UserMeasurementEntity, QSortBy> {
   QueryBuilder<UserMeasurementEntity, UserMeasurementEntity, QAfterSortBy>
+      sortByActivityLevelIndex() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'activityLevelIndex', Sort.asc);
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, UserMeasurementEntity, QAfterSortBy>
+      sortByActivityLevelIndexDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'activityLevelIndex', Sort.desc);
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, UserMeasurementEntity, QAfterSortBy>
+      sortByAge() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'age', Sort.asc);
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, UserMeasurementEntity, QAfterSortBy>
+      sortByAgeDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'age', Sort.desc);
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, UserMeasurementEntity, QAfterSortBy>
       sortByDate() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'date', Sort.asc);
@@ -385,6 +618,20 @@ extension UserMeasurementEntityQuerySortBy
       sortByDateDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'date', Sort.desc);
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, UserMeasurementEntity, QAfterSortBy>
+      sortByHeight() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'height', Sort.asc);
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, UserMeasurementEntity, QAfterSortBy>
+      sortByHeightDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'height', Sort.desc);
     });
   }
 
@@ -406,6 +653,34 @@ extension UserMeasurementEntityQuerySortBy
 extension UserMeasurementEntityQuerySortThenBy
     on QueryBuilder<UserMeasurementEntity, UserMeasurementEntity, QSortThenBy> {
   QueryBuilder<UserMeasurementEntity, UserMeasurementEntity, QAfterSortBy>
+      thenByActivityLevelIndex() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'activityLevelIndex', Sort.asc);
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, UserMeasurementEntity, QAfterSortBy>
+      thenByActivityLevelIndexDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'activityLevelIndex', Sort.desc);
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, UserMeasurementEntity, QAfterSortBy>
+      thenByAge() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'age', Sort.asc);
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, UserMeasurementEntity, QAfterSortBy>
+      thenByAgeDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'age', Sort.desc);
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, UserMeasurementEntity, QAfterSortBy>
       thenByDate() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'date', Sort.asc);
@@ -416,6 +691,20 @@ extension UserMeasurementEntityQuerySortThenBy
       thenByDateDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'date', Sort.desc);
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, UserMeasurementEntity, QAfterSortBy>
+      thenByHeight() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'height', Sort.asc);
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, UserMeasurementEntity, QAfterSortBy>
+      thenByHeightDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'height', Sort.desc);
     });
   }
 
@@ -451,9 +740,30 @@ extension UserMeasurementEntityQuerySortThenBy
 extension UserMeasurementEntityQueryWhereDistinct
     on QueryBuilder<UserMeasurementEntity, UserMeasurementEntity, QDistinct> {
   QueryBuilder<UserMeasurementEntity, UserMeasurementEntity, QDistinct>
+      distinctByActivityLevelIndex() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'activityLevelIndex');
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, UserMeasurementEntity, QDistinct>
+      distinctByAge() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'age');
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, UserMeasurementEntity, QDistinct>
       distinctByDate() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'date');
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, UserMeasurementEntity, QDistinct>
+      distinctByHeight() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'height');
     });
   }
 
@@ -473,10 +783,30 @@ extension UserMeasurementEntityQueryProperty on QueryBuilder<
     });
   }
 
+  QueryBuilder<UserMeasurementEntity, int, QQueryOperations>
+      activityLevelIndexProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'activityLevelIndex');
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, int, QQueryOperations> ageProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'age');
+    });
+  }
+
   QueryBuilder<UserMeasurementEntity, DateTime, QQueryOperations>
       dateProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'date');
+    });
+  }
+
+  QueryBuilder<UserMeasurementEntity, double, QQueryOperations>
+      heightProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'height');
     });
   }
 

@@ -6,8 +6,8 @@ class UserMeasurementRepository {
 
   final UserMeasurementDao _dao;
 
-  Future<double?> getWeightForDay(DateTime date) async {
+  Future<UserMeasurement?> getWeightForDay(DateTime date) async {
     final record = await _dao.getFirstRecordByDay(date);
-    return record?.toModel().weight;
+    return record?.toModel();
   }
 }
