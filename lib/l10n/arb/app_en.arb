@@ -11,5 +11,33 @@
     "today": "Today",
     "@today": {
         "description": "Label for the today button in the date picker"
+    },
+    "calories": "Calories",
+    "@calories": {
+        "description": "Label for the calories indicator"
+    },
+    "protein": "Protein",
+    "@protein": {
+        "description": "Label for the protein indicator"
+    },
+    "carbohydrates": "Carbs",
+    "@carbohydrates": {
+        "description": "Label for the carbohydrates indicator"
+    },
+    "fats": "Fats",
+    "@fats": {
+        "description": "Label for the fats indicator"
+    },
+    "saturatedFats": "Saturated Fats",
+    "@saturatedFats": {
+        "description": "Label for the saturated fats indicator"
+    },
+    "fiber": "Fiber",
+    "@fiber": {
+        "description": "Label for the fiber indicator"
+    },
+    "sugars": "Sugars",
+    "@sugars": {
+        "description": "Label for the sugars indicator"
     }
 }

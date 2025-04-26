@@ -226,22 +226,30 @@ mixin _$OverviewState {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime date) initial,
     required TResult Function(DateTime date) loading,
-    required TResult Function(DateTime date, List<FoodRecord> foodRecords)
+    required TResult Function(DateTime date, List<FoodRecord> foodRecords,
+            OverviewStatistics statistics)
         success,
+    required TResult Function(DateTime date, OverviewIssue issue) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DateTime date)? initial,
     TResult? Function(DateTime date)? loading,
-    TResult? Function(DateTime date, List<FoodRecord> foodRecords)? success,
+    TResult? Function(DateTime date, List<FoodRecord> foodRecords,
+            OverviewStatistics statistics)?
+        success,
+    TResult? Function(DateTime date, OverviewIssue issue)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime date)? initial,
     TResult Function(DateTime date)? loading,
-    TResult Function(DateTime date, List<FoodRecord> foodRecords)? success,
+    TResult Function(DateTime date, List<FoodRecord> foodRecords,
+            OverviewStatistics statistics)?
+        success,
+    TResult Function(DateTime date, OverviewIssue issue)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -250,6 +258,7 @@ mixin _$OverviewState {
     required TResult Function(InitialState value) initial,
     required TResult Function(LoadingState value) loading,
     required TResult Function(SuccessState value) success,
+    required TResult Function(FailureState value) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -257,6 +266,7 @@ mixin _$OverviewState {
     TResult? Function(InitialState value)? initial,
     TResult? Function(LoadingState value)? loading,
     TResult? Function(SuccessState value)? success,
+    TResult? Function(FailureState value)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -264,6 +274,7 @@ mixin _$OverviewState {
     TResult Function(InitialState value)? initial,
     TResult Function(LoadingState value)? loading,
     TResult Function(SuccessState value)? success,
+    TResult Function(FailureState value)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -374,8 +385,10 @@ class _$InitialStateImpl implements InitialState {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime date) initial,
     required TResult Function(DateTime date) loading,
-    required TResult Function(DateTime date, List<FoodRecord> foodRecords)
+    required TResult Function(DateTime date, List<FoodRecord> foodRecords,
+            OverviewStatistics statistics)
         success,
+    required TResult Function(DateTime date, OverviewIssue issue) failure,
   }) {
     return initial(date);
   }
@@ -385,7 +398,10 @@ class _$InitialStateImpl implements InitialState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DateTime date)? initial,
     TResult? Function(DateTime date)? loading,
-    TResult? Function(DateTime date, List<FoodRecord> foodRecords)? success,
+    TResult? Function(DateTime date, List<FoodRecord> foodRecords,
+            OverviewStatistics statistics)?
+        success,
+    TResult? Function(DateTime date, OverviewIssue issue)? failure,
   }) {
     return initial?.call(date);
   }
@@ -395,7 +411,10 @@ class _$InitialStateImpl implements InitialState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime date)? initial,
     TResult Function(DateTime date)? loading,
-    TResult Function(DateTime date, List<FoodRecord> foodRecords)? success,
+    TResult Function(DateTime date, List<FoodRecord> foodRecords,
+            OverviewStatistics statistics)?
+        success,
+    TResult Function(DateTime date, OverviewIssue issue)? failure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -410,6 +429,7 @@ class _$InitialStateImpl implements InitialState {
     required TResult Function(InitialState value) initial,
     required TResult Function(LoadingState value) loading,
     required TResult Function(SuccessState value) success,
+    required TResult Function(FailureState value) failure,
   }) {
     return initial(this);
   }
@@ -420,6 +440,7 @@ class _$InitialStateImpl implements InitialState {
     TResult? Function(InitialState value)? initial,
     TResult? Function(LoadingState value)? loading,
     TResult? Function(SuccessState value)? success,
+    TResult? Function(FailureState value)? failure,
   }) {
     return initial?.call(this);
   }
@@ -430,6 +451,7 @@ class _$InitialStateImpl implements InitialState {
     TResult Function(InitialState value)? initial,
     TResult Function(LoadingState value)? loading,
     TResult Function(SuccessState value)? success,
+    TResult Function(FailureState value)? failure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -519,8 +541,10 @@ class _$LoadingStateImpl implements LoadingState {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime date) initial,
     required TResult Function(DateTime date) loading,
-    required TResult Function(DateTime date, List<FoodRecord> foodRecords)
+    required TResult Function(DateTime date, List<FoodRecord> foodRecords,
+            OverviewStatistics statistics)
         success,
+    required TResult Function(DateTime date, OverviewIssue issue) failure,
   }) {
     return loading(date);
   }
@@ -530,7 +554,10 @@ class _$LoadingStateImpl implements LoadingState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DateTime date)? initial,
     TResult? Function(DateTime date)? loading,
-    TResult? Function(DateTime date, List<FoodRecord> foodRecords)? success,
+    TResult? Function(DateTime date, List<FoodRecord> foodRecords,
+            OverviewStatistics statistics)?
+        success,
+    TResult? Function(DateTime date, OverviewIssue issue)? failure,
   }) {
     return loading?.call(date);
   }
@@ -540,7 +567,10 @@ class _$LoadingStateImpl implements LoadingState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime date)? initial,
     TResult Function(DateTime date)? loading,
-    TResult Function(DateTime date, List<FoodRecord> foodRecords)? success,
+    TResult Function(DateTime date, List<FoodRecord> foodRecords,
+            OverviewStatistics statistics)?
+        success,
+    TResult Function(DateTime date, OverviewIssue issue)? failure,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -555,6 +585,7 @@ class _$LoadingStateImpl implements LoadingState {
     required TResult Function(InitialState value) initial,
     required TResult Function(LoadingState value) loading,
     required TResult Function(SuccessState value) success,
+    required TResult Function(FailureState value) failure,
   }) {
     return loading(this);
   }
@@ -565,6 +596,7 @@ class _$LoadingStateImpl implements LoadingState {
     TResult? Function(InitialState value)? initial,
     TResult? Function(LoadingState value)? loading,
     TResult? Function(SuccessState value)? success,
+    TResult? Function(FailureState value)? failure,
   }) {
     return loading?.call(this);
   }
@@ -575,6 +607,7 @@ class _$LoadingStateImpl implements LoadingState {
     TResult Function(InitialState value)? initial,
     TResult Function(LoadingState value)? loading,
     TResult Function(SuccessState value)? success,
+    TResult Function(FailureState value)? failure,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -604,7 +637,10 @@ abstract class _$$SuccessStateImplCopyWith<$Res>
       __$$SuccessStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({DateTime date, List<FoodRecord> foodRecords});
+  $Res call(
+      {DateTime date,
+      List<FoodRecord> foodRecords,
+      OverviewStatistics statistics});
 }
 
 /// @nodoc
@@ -620,6 +656,7 @@ class __$$SuccessStateImplCopyWithImpl<$Res>
   $Res call({
     Object? date = null,
     Object? foodRecords = null,
+    Object? statistics = null,
   }) {
     return _then(_$SuccessStateImpl(
       date: null == date
@@ -630,6 +667,10 @@ class __$$SuccessStateImplCopyWithImpl<$Res>
           ? _value._foodRecords
           : foodRecords // ignore: cast_nullable_to_non_nullable
               as List<FoodRecord>,
+      statistics: null == statistics
+          ? _value.statistics
+          : statistics // ignore: cast_nullable_to_non_nullable
+              as OverviewStatistics,
     ));
   }
 }
@@ -638,7 +679,9 @@ class __$$SuccessStateImplCopyWithImpl<$Res>
 
 class _$SuccessStateImpl implements SuccessState {
   const _$SuccessStateImpl(
-      {required this.date, final List<FoodRecord> foodRecords = const []})
+      {required this.date,
+      final List<FoodRecord> foodRecords = const [],
+      required this.statistics})
       : _foodRecords = foodRecords;
 
   @override
@@ -653,8 +696,11 @@ class _$SuccessStateImpl implements SuccessState {
   }
 
   @override
+  final OverviewStatistics statistics;
+
+  @override
   String toString() {
-    return 'OverviewState.success(date: $date, foodRecords: $foodRecords)';
+    return 'OverviewState.success(date: $date, foodRecords: $foodRecords, statistics: $statistics)';
   }
 
   @override
@@ -664,12 +710,14 @@ class _$SuccessStateImpl implements SuccessState {
             other is _$SuccessStateImpl &&
             (identical(other.date, date) || other.date == date) &&
             const DeepCollectionEquality()
-                .equals(other._foodRecords, _foodRecords));
+                .equals(other._foodRecords, _foodRecords) &&
+            (identical(other.statistics, statistics) ||
+                other.statistics == statistics));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, date, const DeepCollectionEquality().hash(_foodRecords));
+  int get hashCode => Object.hash(runtimeType, date,
+      const DeepCollectionEquality().hash(_foodRecords), statistics);
 
   @JsonKey(ignore: true)
   @override
@@ -682,10 +730,12 @@ class _$SuccessStateImpl implements SuccessState {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime date) initial,
     required TResult Function(DateTime date) loading,
-    required TResult Function(DateTime date, List<FoodRecord> foodRecords)
+    required TResult Function(DateTime date, List<FoodRecord> foodRecords,
+            OverviewStatistics statistics)
         success,
+    required TResult Function(DateTime date, OverviewIssue issue) failure,
   }) {
-    return success(date, foodRecords);
+    return success(date, foodRecords, statistics);
   }
 
   @override
@@ -693,9 +743,12 @@ class _$SuccessStateImpl implements SuccessState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DateTime date)? initial,
     TResult? Function(DateTime date)? loading,
-    TResult? Function(DateTime date, List<FoodRecord> foodRecords)? success,
+    TResult? Function(DateTime date, List<FoodRecord> foodRecords,
+            OverviewStatistics statistics)?
+        success,
+    TResult? Function(DateTime date, OverviewIssue issue)? failure,
   }) {
-    return success?.call(date, foodRecords);
+    return success?.call(date, foodRecords, statistics);
   }
 
   @override
@@ -703,11 +756,14 @@ class _$SuccessStateImpl implements SuccessState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime date)? initial,
     TResult Function(DateTime date)? loading,
-    TResult Function(DateTime date, List<FoodRecord> foodRecords)? success,
+    TResult Function(DateTime date, List<FoodRecord> foodRecords,
+            OverviewStatistics statistics)?
+        success,
+    TResult Function(DateTime date, OverviewIssue issue)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(date, foodRecords);
+      return success(date, foodRecords, statistics);
     }
     return orElse();
   }
@@ -718,6 +774,7 @@ class _$SuccessStateImpl implements SuccessState {
     required TResult Function(InitialState value) initial,
     required TResult Function(LoadingState value) loading,
     required TResult Function(SuccessState value) success,
+    required TResult Function(FailureState value) failure,
   }) {
     return success(this);
   }
@@ -728,6 +785,7 @@ class _$SuccessStateImpl implements SuccessState {
     TResult? Function(InitialState value)? initial,
     TResult? Function(LoadingState value)? loading,
     TResult? Function(SuccessState value)? success,
+    TResult? Function(FailureState value)? failure,
   }) {
     return success?.call(this);
   }
@@ -738,6 +796,7 @@ class _$SuccessStateImpl implements SuccessState {
     TResult Function(InitialState value)? initial,
     TResult Function(LoadingState value)? loading,
     TResult Function(SuccessState value)? success,
+    TResult Function(FailureState value)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -750,13 +809,181 @@ class _$SuccessStateImpl implements SuccessState {
 abstract class SuccessState implements OverviewState {
   const factory SuccessState(
       {required final DateTime date,
-      final List<FoodRecord> foodRecords}) = _$SuccessStateImpl;
+      final List<FoodRecord> foodRecords,
+      required final OverviewStatistics statistics}) = _$SuccessStateImpl;
 
   @override
   DateTime get date;
   List<FoodRecord> get foodRecords;
+  OverviewStatistics get statistics;
   @override
   @JsonKey(ignore: true)
   _$$SuccessStateImplCopyWith<_$SuccessStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FailureStateImplCopyWith<$Res>
+    implements $OverviewStateCopyWith<$Res> {
+  factory _$$FailureStateImplCopyWith(
+          _$FailureStateImpl value, $Res Function(_$FailureStateImpl) then) =
+      __$$FailureStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({DateTime date, OverviewIssue issue});
+}
+
+/// @nodoc
+class __$$FailureStateImplCopyWithImpl<$Res>
+    extends _$OverviewStateCopyWithImpl<$Res, _$FailureStateImpl>
+    implements _$$FailureStateImplCopyWith<$Res> {
+  __$$FailureStateImplCopyWithImpl(
+      _$FailureStateImpl _value, $Res Function(_$FailureStateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? date = null,
+    Object? issue = null,
+  }) {
+    return _then(_$FailureStateImpl(
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      issue: null == issue
+          ? _value.issue
+          : issue // ignore: cast_nullable_to_non_nullable
+              as OverviewIssue,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FailureStateImpl implements FailureState {
+  const _$FailureStateImpl({required this.date, required this.issue});
+
+  @override
+  final DateTime date;
+  @override
+  final OverviewIssue issue;
+
+  @override
+  String toString() {
+    return 'OverviewState.failure(date: $date, issue: $issue)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FailureStateImpl &&
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.issue, issue) || other.issue == issue));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, date, issue);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FailureStateImplCopyWith<_$FailureStateImpl> get copyWith =>
+      __$$FailureStateImplCopyWithImpl<_$FailureStateImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTime date) initial,
+    required TResult Function(DateTime date) loading,
+    required TResult Function(DateTime date, List<FoodRecord> foodRecords,
+            OverviewStatistics statistics)
+        success,
+    required TResult Function(DateTime date, OverviewIssue issue) failure,
+  }) {
+    return failure(date, issue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime date)? initial,
+    TResult? Function(DateTime date)? loading,
+    TResult? Function(DateTime date, List<FoodRecord> foodRecords,
+            OverviewStatistics statistics)?
+        success,
+    TResult? Function(DateTime date, OverviewIssue issue)? failure,
+  }) {
+    return failure?.call(date, issue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime date)? initial,
+    TResult Function(DateTime date)? loading,
+    TResult Function(DateTime date, List<FoodRecord> foodRecords,
+            OverviewStatistics statistics)?
+        success,
+    TResult Function(DateTime date, OverviewIssue issue)? failure,
+    required TResult orElse(),
+  }) {
+    if (failure != null) {
+      return failure(date, issue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitialState value) initial,
+    required TResult Function(LoadingState value) loading,
+    required TResult Function(SuccessState value) success,
+    required TResult Function(FailureState value) failure,
+  }) {
+    return failure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitialState value)? initial,
+    TResult? Function(LoadingState value)? loading,
+    TResult? Function(SuccessState value)? success,
+    TResult? Function(FailureState value)? failure,
+  }) {
+    return failure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitialState value)? initial,
+    TResult Function(LoadingState value)? loading,
+    TResult Function(SuccessState value)? success,
+    TResult Function(FailureState value)? failure,
+    required TResult orElse(),
+  }) {
+    if (failure != null) {
+      return failure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FailureState implements OverviewState {
+  const factory FailureState(
+      {required final DateTime date,
+      required final OverviewIssue issue}) = _$FailureStateImpl;
+
+  @override
+  DateTime get date;
+  OverviewIssue get issue;
+  @override
+  @JsonKey(ignore: true)
+  _$$FailureStateImplCopyWith<_$FailureStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
