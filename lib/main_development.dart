@@ -4,6 +4,7 @@ import 'package:food_record_repository/food_record_repository.dart';
 import 'package:isar/isar.dart';
 import 'package:nutrition_tracker/app/app.dart';
 import 'package:nutrition_tracker/bootstrap.dart';
+import 'package:nutrition_tracker/seeder/mock_seeder.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:user_measurement_dao/user_measurement_dao.dart';
 import 'package:user_measurement_repository/user_measurement_repository.dart';
@@ -25,6 +26,8 @@ void main() {
     final foodRecordRepository = FoodRecordRepository(dao: foodRecordDao);
     final userMeasurementRepository =
         UserMeasurementRepository(dao: userMeasurementDao);
+
+    await MockSeeder(isar: isar).seed();
 
     return App(
       foodRecordRepository: foodRecordRepository,
