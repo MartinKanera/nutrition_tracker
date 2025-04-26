@@ -1,4 +1,4 @@
-/// A Very Good Project created by Very Good CLI.
+/// Food Record DAO package for Nutrition Tracker
 library;
 
 export 'src/food_record_dao.dart';

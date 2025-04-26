@@ -1,4 +1,4 @@
-/// A Very Good Project created by Very Good CLI.
+/// NT UI package for Nutrition Tracker
 library;
 
 export 'src/theme/theme.dart';

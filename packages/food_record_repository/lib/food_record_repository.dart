@@ -1,4 +1,4 @@
-/// A Very Good Project created by Very Good CLI.
+/// Food Record Repository package for Nutrition Tracker
 library;
 
 export 'src/food_record_repository.dart';
