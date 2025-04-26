@@ -15,4 +15,8 @@ class UserMeasurementDao {
         .sortByDateDesc()
         .findFirst();
   }
+
+  Future<UserMeasurementEntity?> getLatestRecordByDay() {
+    return _isar.userMeasurements.where().sortByDateDesc().findFirst();
+  }
 }
