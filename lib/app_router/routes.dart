@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nutrition_tracker/l10n/l10n.dart';
+import 'package:nutrition_tracker/overview/view/overview_page.dart';
 
 final $rootNavigatorKey = GlobalKey<NavigatorState>();
 
@@ -65,9 +66,8 @@ final router = GoRouter(
         GoRoute(
           path: _routes[AppRoute.home]!.path,
           name: _routes[AppRoute.home]!.name,
-          pageBuilder: (context, state) => const NoTransitionPage(
-            child: Text("Overview"),
-          ),
+          pageBuilder: (context, state) =>
+              const NoTransitionPage(child: OverviewPage()),
         ),
         GoRoute(
           path: _routes[AppRoute.profile]!.path,

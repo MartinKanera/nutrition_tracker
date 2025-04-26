@@ -70,7 +70,7 @@ class NtTheme {
       // Headings
       headlineLarge: sansSerifStyle.copyWith(
         fontSize: 22,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w800,
         height: 1.3,
         color: _colorScheme.onSurface,
       ),

@@ -7,5 +7,9 @@
     "navigatorProfileLabel": "Profile",
     "@navigatorProfileLabel": {
         "description": "Label for the profile tab in the bottom navigation bar"
+    },
+    "today": "Today",
+    "@today": {
+        "description": "Label for the today button in the date picker"
     }
 }

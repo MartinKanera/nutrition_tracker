@@ -4,12 +4,12 @@ part of 'overview_bloc.dart';
 sealed class OverviewState with _$OverviewState {
   const factory OverviewState.initial({
     required DateTime date,
-  }) = _InitialState;
+  }) = InitialState;
   const factory OverviewState.loading({
     required DateTime date,
-  }) = _LoadingState;
+  }) = LoadingState;
   const factory OverviewState.success({
     required DateTime date,
     @Default([]) List<FoodRecord> foodRecords,
-  }) = _SuccessState;
+  }) = SuccessState;
 }

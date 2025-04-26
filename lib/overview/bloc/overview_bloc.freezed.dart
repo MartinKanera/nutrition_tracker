@@ -1,4 +1,3 @@
-// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -10,107 +9,112 @@ part of 'overview_bloc.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// dart format off
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$OverviewEvent {
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is OverviewEvent);
-  }
+  DateTime get date => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTime date) dayChanged,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime date)? dayChanged,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime date)? dayChanged,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_DayChanged value) dayChanged,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_DayChanged value)? dayChanged,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_DayChanged value)? dayChanged,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  String toString() {
-    return 'OverviewEvent()';
-  }
+  @JsonKey(ignore: true)
+  $OverviewEventCopyWith<OverviewEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-class $OverviewEventCopyWith<$Res> {
-  $OverviewEventCopyWith(OverviewEvent _, $Res Function(OverviewEvent) __);
-}
-
-/// @nodoc
-
-class _OverviewEvent implements OverviewEvent {
-  const _OverviewEvent();
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _OverviewEvent);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  String toString() {
-    return 'OverviewEvent.load()';
-  }
-}
-
-/// @nodoc
-mixin _$OverviewState {
-  DateTime get date;
-
-  /// Create a copy of OverviewState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  $OverviewStateCopyWith<OverviewState> get copyWith =>
-      _$OverviewStateCopyWithImpl<OverviewState>(
-          this as OverviewState, _$identity);
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is OverviewState &&
-            (identical(other.date, date) || other.date == date));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, date);
-
-  @override
-  String toString() {
-    return 'OverviewState(date: $date)';
-  }
-}
-
-/// @nodoc
-abstract mixin class $OverviewStateCopyWith<$Res> {
-  factory $OverviewStateCopyWith(
-          OverviewState value, $Res Function(OverviewState) _then) =
-      _$OverviewStateCopyWithImpl;
+abstract class $OverviewEventCopyWith<$Res> {
+  factory $OverviewEventCopyWith(
+          OverviewEvent value, $Res Function(OverviewEvent) then) =
+      _$OverviewEventCopyWithImpl<$Res, OverviewEvent>;
   @useResult
   $Res call({DateTime date});
 }
 
 /// @nodoc
-class _$OverviewStateCopyWithImpl<$Res>
-    implements $OverviewStateCopyWith<$Res> {
-  _$OverviewStateCopyWithImpl(this._self, this._then);
+class _$OverviewEventCopyWithImpl<$Res, $Val extends OverviewEvent>
+    implements $OverviewEventCopyWith<$Res> {
+  _$OverviewEventCopyWithImpl(this._value, this._then);
 
-  final OverviewState _self;
-  final $Res Function(OverviewState) _then;
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
-  /// Create a copy of OverviewState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? date = null,
   }) {
-    return _then(_self.copyWith(
+    return _then(_value.copyWith(
       date: null == date
-          ? _self.date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$DayChangedImplCopyWith<$Res>
+    implements $OverviewEventCopyWith<$Res> {
+  factory _$$DayChangedImplCopyWith(
+          _$DayChangedImpl value, $Res Function(_$DayChangedImpl) then) =
+      __$$DayChangedImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({DateTime date});
+}
+
+/// @nodoc
+class __$$DayChangedImplCopyWithImpl<$Res>
+    extends _$OverviewEventCopyWithImpl<$Res, _$DayChangedImpl>
+    implements _$$DayChangedImplCopyWith<$Res> {
+  __$$DayChangedImplCopyWithImpl(
+      _$DayChangedImpl _value, $Res Function(_$DayChangedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? date = null,
+  }) {
+    return _then(_$DayChangedImpl(
+      null == date
+          ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ));
@@ -119,134 +123,361 @@ class _$OverviewStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _InitialState implements OverviewState {
-  const _InitialState({required this.date});
+class _$DayChangedImpl implements _DayChanged {
+  const _$DayChangedImpl(this.date);
 
   @override
   final DateTime date;
 
-  /// Create a copy of OverviewState
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  _$InitialStateCopyWith<_InitialState> get copyWith =>
-      __$InitialStateCopyWithImpl<_InitialState>(this, _$identity);
+  String toString() {
+    return 'OverviewEvent.dayChanged(date: $date)';
+  }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _InitialState &&
+            other is _$DayChangedImpl &&
             (identical(other.date, date) || other.date == date));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, date);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DayChangedImplCopyWith<_$DayChangedImpl> get copyWith =>
+      __$$DayChangedImplCopyWithImpl<_$DayChangedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTime date) dayChanged,
+  }) {
+    return dayChanged(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime date)? dayChanged,
+  }) {
+    return dayChanged?.call(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime date)? dayChanged,
+    required TResult orElse(),
+  }) {
+    if (dayChanged != null) {
+      return dayChanged(date);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_DayChanged value) dayChanged,
+  }) {
+    return dayChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_DayChanged value)? dayChanged,
+  }) {
+    return dayChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_DayChanged value)? dayChanged,
+    required TResult orElse(),
+  }) {
+    if (dayChanged != null) {
+      return dayChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DayChanged implements OverviewEvent {
+  const factory _DayChanged(final DateTime date) = _$DayChangedImpl;
+
+  @override
+  DateTime get date;
+  @override
+  @JsonKey(ignore: true)
+  _$$DayChangedImplCopyWith<_$DayChangedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$OverviewState {
+  DateTime get date => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTime date) initial,
+    required TResult Function(DateTime date) loading,
+    required TResult Function(DateTime date, List<FoodRecord> foodRecords)
+        success,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime date)? initial,
+    TResult? Function(DateTime date)? loading,
+    TResult? Function(DateTime date, List<FoodRecord> foodRecords)? success,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime date)? initial,
+    TResult Function(DateTime date)? loading,
+    TResult Function(DateTime date, List<FoodRecord> foodRecords)? success,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitialState value) initial,
+    required TResult Function(LoadingState value) loading,
+    required TResult Function(SuccessState value) success,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitialState value)? initial,
+    TResult? Function(LoadingState value)? loading,
+    TResult? Function(SuccessState value)? success,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitialState value)? initial,
+    TResult Function(LoadingState value)? loading,
+    TResult Function(SuccessState value)? success,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $OverviewStateCopyWith<OverviewState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $OverviewStateCopyWith<$Res> {
+  factory $OverviewStateCopyWith(
+          OverviewState value, $Res Function(OverviewState) then) =
+      _$OverviewStateCopyWithImpl<$Res, OverviewState>;
+  @useResult
+  $Res call({DateTime date});
+}
+
+/// @nodoc
+class _$OverviewStateCopyWithImpl<$Res, $Val extends OverviewState>
+    implements $OverviewStateCopyWith<$Res> {
+  _$OverviewStateCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? date = null,
+  }) {
+    return _then(_value.copyWith(
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$InitialStateImplCopyWith<$Res>
+    implements $OverviewStateCopyWith<$Res> {
+  factory _$$InitialStateImplCopyWith(
+          _$InitialStateImpl value, $Res Function(_$InitialStateImpl) then) =
+      __$$InitialStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({DateTime date});
+}
+
+/// @nodoc
+class __$$InitialStateImplCopyWithImpl<$Res>
+    extends _$OverviewStateCopyWithImpl<$Res, _$InitialStateImpl>
+    implements _$$InitialStateImplCopyWith<$Res> {
+  __$$InitialStateImplCopyWithImpl(
+      _$InitialStateImpl _value, $Res Function(_$InitialStateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? date = null,
+  }) {
+    return _then(_$InitialStateImpl(
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$InitialStateImpl implements InitialState {
+  const _$InitialStateImpl({required this.date});
+
+  @override
+  final DateTime date;
 
   @override
   String toString() {
     return 'OverviewState.initial(date: $date)';
   }
-}
-
-/// @nodoc
-abstract mixin class _$InitialStateCopyWith<$Res>
-    implements $OverviewStateCopyWith<$Res> {
-  factory _$InitialStateCopyWith(
-          _InitialState value, $Res Function(_InitialState) _then) =
-      __$InitialStateCopyWithImpl;
-  @override
-  @useResult
-  $Res call({DateTime date});
-}
-
-/// @nodoc
-class __$InitialStateCopyWithImpl<$Res>
-    implements _$InitialStateCopyWith<$Res> {
-  __$InitialStateCopyWithImpl(this._self, this._then);
-
-  final _InitialState _self;
-  final $Res Function(_InitialState) _then;
-
-  /// Create a copy of OverviewState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $Res call({
-    Object? date = null,
-  }) {
-    return _then(_InitialState(
-      date: null == date
-          ? _self.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _LoadingState implements OverviewState {
-  const _LoadingState({required this.date});
-
-  @override
-  final DateTime date;
-
-  /// Create a copy of OverviewState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  _$LoadingStateCopyWith<_LoadingState> get copyWith =>
-      __$LoadingStateCopyWithImpl<_LoadingState>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _LoadingState &&
+            other is _$InitialStateImpl &&
             (identical(other.date, date) || other.date == date));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, date);
 
+  @JsonKey(ignore: true)
   @override
-  String toString() {
-    return 'OverviewState.loading(date: $date)';
+  @pragma('vm:prefer-inline')
+  _$$InitialStateImplCopyWith<_$InitialStateImpl> get copyWith =>
+      __$$InitialStateImplCopyWithImpl<_$InitialStateImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTime date) initial,
+    required TResult Function(DateTime date) loading,
+    required TResult Function(DateTime date, List<FoodRecord> foodRecords)
+        success,
+  }) {
+    return initial(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime date)? initial,
+    TResult? Function(DateTime date)? loading,
+    TResult? Function(DateTime date, List<FoodRecord> foodRecords)? success,
+  }) {
+    return initial?.call(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime date)? initial,
+    TResult Function(DateTime date)? loading,
+    TResult Function(DateTime date, List<FoodRecord> foodRecords)? success,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(date);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitialState value) initial,
+    required TResult Function(LoadingState value) loading,
+    required TResult Function(SuccessState value) success,
+  }) {
+    return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitialState value)? initial,
+    TResult? Function(LoadingState value)? loading,
+    TResult? Function(SuccessState value)? success,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitialState value)? initial,
+    TResult Function(LoadingState value)? loading,
+    TResult Function(SuccessState value)? success,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
   }
 }
 
+abstract class InitialState implements OverviewState {
+  const factory InitialState({required final DateTime date}) =
+      _$InitialStateImpl;
+
+  @override
+  DateTime get date;
+  @override
+  @JsonKey(ignore: true)
+  _$$InitialStateImplCopyWith<_$InitialStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 /// @nodoc
-abstract mixin class _$LoadingStateCopyWith<$Res>
+abstract class _$$LoadingStateImplCopyWith<$Res>
     implements $OverviewStateCopyWith<$Res> {
-  factory _$LoadingStateCopyWith(
-          _LoadingState value, $Res Function(_LoadingState) _then) =
-      __$LoadingStateCopyWithImpl;
+  factory _$$LoadingStateImplCopyWith(
+          _$LoadingStateImpl value, $Res Function(_$LoadingStateImpl) then) =
+      __$$LoadingStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({DateTime date});
 }
 
 /// @nodoc
-class __$LoadingStateCopyWithImpl<$Res>
-    implements _$LoadingStateCopyWith<$Res> {
-  __$LoadingStateCopyWithImpl(this._self, this._then);
+class __$$LoadingStateImplCopyWithImpl<$Res>
+    extends _$OverviewStateCopyWithImpl<$Res, _$LoadingStateImpl>
+    implements _$$LoadingStateImplCopyWith<$Res> {
+  __$$LoadingStateImplCopyWithImpl(
+      _$LoadingStateImpl _value, $Res Function(_$LoadingStateImpl) _then)
+      : super(_value, _then);
 
-  final _LoadingState _self;
-  final $Res Function(_LoadingState) _then;
-
-  /// Create a copy of OverviewState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
   @pragma('vm:prefer-inline')
+  @override
   $Res call({
     Object? date = null,
   }) {
-    return _then(_LoadingState(
+    return _then(_$LoadingStateImpl(
       date: null == date
-          ? _self.date
+          ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ));
@@ -255,14 +486,165 @@ class __$LoadingStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _SuccessState implements OverviewState {
-  const _SuccessState(
+class _$LoadingStateImpl implements LoadingState {
+  const _$LoadingStateImpl({required this.date});
+
+  @override
+  final DateTime date;
+
+  @override
+  String toString() {
+    return 'OverviewState.loading(date: $date)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoadingStateImpl &&
+            (identical(other.date, date) || other.date == date));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, date);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoadingStateImplCopyWith<_$LoadingStateImpl> get copyWith =>
+      __$$LoadingStateImplCopyWithImpl<_$LoadingStateImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTime date) initial,
+    required TResult Function(DateTime date) loading,
+    required TResult Function(DateTime date, List<FoodRecord> foodRecords)
+        success,
+  }) {
+    return loading(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime date)? initial,
+    TResult? Function(DateTime date)? loading,
+    TResult? Function(DateTime date, List<FoodRecord> foodRecords)? success,
+  }) {
+    return loading?.call(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime date)? initial,
+    TResult Function(DateTime date)? loading,
+    TResult Function(DateTime date, List<FoodRecord> foodRecords)? success,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(date);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitialState value) initial,
+    required TResult Function(LoadingState value) loading,
+    required TResult Function(SuccessState value) success,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitialState value)? initial,
+    TResult? Function(LoadingState value)? loading,
+    TResult? Function(SuccessState value)? success,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitialState value)? initial,
+    TResult Function(LoadingState value)? loading,
+    TResult Function(SuccessState value)? success,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LoadingState implements OverviewState {
+  const factory LoadingState({required final DateTime date}) =
+      _$LoadingStateImpl;
+
+  @override
+  DateTime get date;
+  @override
+  @JsonKey(ignore: true)
+  _$$LoadingStateImplCopyWith<_$LoadingStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SuccessStateImplCopyWith<$Res>
+    implements $OverviewStateCopyWith<$Res> {
+  factory _$$SuccessStateImplCopyWith(
+          _$SuccessStateImpl value, $Res Function(_$SuccessStateImpl) then) =
+      __$$SuccessStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({DateTime date, List<FoodRecord> foodRecords});
+}
+
+/// @nodoc
+class __$$SuccessStateImplCopyWithImpl<$Res>
+    extends _$OverviewStateCopyWithImpl<$Res, _$SuccessStateImpl>
+    implements _$$SuccessStateImplCopyWith<$Res> {
+  __$$SuccessStateImplCopyWithImpl(
+      _$SuccessStateImpl _value, $Res Function(_$SuccessStateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? date = null,
+    Object? foodRecords = null,
+  }) {
+    return _then(_$SuccessStateImpl(
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      foodRecords: null == foodRecords
+          ? _value._foodRecords
+          : foodRecords // ignore: cast_nullable_to_non_nullable
+              as List<FoodRecord>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SuccessStateImpl implements SuccessState {
+  const _$SuccessStateImpl(
       {required this.date, final List<FoodRecord> foodRecords = const []})
       : _foodRecords = foodRecords;
 
   @override
   final DateTime date;
   final List<FoodRecord> _foodRecords;
+  @override
   @JsonKey()
   List<FoodRecord> get foodRecords {
     if (_foodRecords is EqualUnmodifiableListView) return _foodRecords;
@@ -270,19 +652,16 @@ class _SuccessState implements OverviewState {
     return EqualUnmodifiableListView(_foodRecords);
   }
 
-  /// Create a copy of OverviewState
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  _$SuccessStateCopyWith<_SuccessState> get copyWith =>
-      __$SuccessStateCopyWithImpl<_SuccessState>(this, _$identity);
+  String toString() {
+    return 'OverviewState.success(date: $date, foodRecords: $foodRecords)';
+  }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SuccessState &&
+            other is _$SuccessStateImpl &&
             (identical(other.date, date) || other.date == date) &&
             const DeepCollectionEquality()
                 .equals(other._foodRecords, _foodRecords));
@@ -292,50 +671,92 @@ class _SuccessState implements OverviewState {
   int get hashCode => Object.hash(
       runtimeType, date, const DeepCollectionEquality().hash(_foodRecords));
 
-  @override
-  String toString() {
-    return 'OverviewState.success(date: $date, foodRecords: $foodRecords)';
-  }
-}
-
-/// @nodoc
-abstract mixin class _$SuccessStateCopyWith<$Res>
-    implements $OverviewStateCopyWith<$Res> {
-  factory _$SuccessStateCopyWith(
-          _SuccessState value, $Res Function(_SuccessState) _then) =
-      __$SuccessStateCopyWithImpl;
-  @override
-  @useResult
-  $Res call({DateTime date, List<FoodRecord> foodRecords});
-}
-
-/// @nodoc
-class __$SuccessStateCopyWithImpl<$Res>
-    implements _$SuccessStateCopyWith<$Res> {
-  __$SuccessStateCopyWithImpl(this._self, this._then);
-
-  final _SuccessState _self;
-  final $Res Function(_SuccessState) _then;
-
-  /// Create a copy of OverviewState
-  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  $Res call({
-    Object? date = null,
-    Object? foodRecords = null,
+  _$$SuccessStateImplCopyWith<_$SuccessStateImpl> get copyWith =>
+      __$$SuccessStateImplCopyWithImpl<_$SuccessStateImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTime date) initial,
+    required TResult Function(DateTime date) loading,
+    required TResult Function(DateTime date, List<FoodRecord> foodRecords)
+        success,
   }) {
-    return _then(_SuccessState(
-      date: null == date
-          ? _self.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      foodRecords: null == foodRecords
-          ? _self._foodRecords
-          : foodRecords // ignore: cast_nullable_to_non_nullable
-              as List<FoodRecord>,
-    ));
+    return success(date, foodRecords);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime date)? initial,
+    TResult? Function(DateTime date)? loading,
+    TResult? Function(DateTime date, List<FoodRecord> foodRecords)? success,
+  }) {
+    return success?.call(date, foodRecords);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime date)? initial,
+    TResult Function(DateTime date)? loading,
+    TResult Function(DateTime date, List<FoodRecord> foodRecords)? success,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(date, foodRecords);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitialState value) initial,
+    required TResult Function(LoadingState value) loading,
+    required TResult Function(SuccessState value) success,
+  }) {
+    return success(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitialState value)? initial,
+    TResult? Function(LoadingState value)? loading,
+    TResult? Function(SuccessState value)? success,
+  }) {
+    return success?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitialState value)? initial,
+    TResult Function(LoadingState value)? loading,
+    TResult Function(SuccessState value)? success,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(this);
+    }
+    return orElse();
   }
 }
 
-// dart format on
+abstract class SuccessState implements OverviewState {
+  const factory SuccessState(
+      {required final DateTime date,
+      final List<FoodRecord> foodRecords}) = _$SuccessStateImpl;
+
+  @override
+  DateTime get date;
+  List<FoodRecord> get foodRecords;
+  @override
+  @JsonKey(ignore: true)
+  _$$SuccessStateImplCopyWith<_$SuccessStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
