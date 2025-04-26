@@ -11,6 +11,7 @@ workspace:
   - packages/food_record_dao
   - packages/food_record_repository
   - packages/user_measurement_dao
+  - packages/user_measurement_repository
 
 dependencies:
   bloc: ^9.0.0
@@ -29,6 +30,7 @@ dependencies:
   nt_ui: 0.1.0+1
   path_provider: ^2.1.5
   user_measurement_dao: 0.1.0+1
+  user_measurement_repository: 0.1.0+1
 
 dev_dependencies:
   build_runner: ^2.4.13
