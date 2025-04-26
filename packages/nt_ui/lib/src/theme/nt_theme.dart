@@ -156,9 +156,17 @@ class NtTheme {
 
   CardTheme get _cardTheme {
     return CardTheme(
-      elevation: 2,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      elevation: 6,
+      shadowColor: Colors.black.withAlpha(100),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(
+          color: Colors.grey.shade200,
+          width: 1,
+        ),
+      ),
       color: _colorScheme.surface,
+      margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
     );
   }
 
