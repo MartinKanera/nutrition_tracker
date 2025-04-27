@@ -76,16 +76,17 @@ class MealSectionCard extends StatelessWidget {
                         ),
                         alignment: Alignment.centerRight,
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 8),
+                          horizontal: 20,
+                          vertical: 8,
+                        ),
                         child: const Icon(Icons.delete, color: Colors.white),
                       ),
                       onDismissed: (_) {
-                        final bloc = context.read<OverviewBloc>();
-                        bloc.add(
-                          OverviewEvent.deleteFoodRecord(
-                            foodRecord: foodRecord,
-                          ),
-                        );
+                        context.read<OverviewBloc>().add(
+                              OverviewEvent.deleteFoodRecord(
+                                foodRecord: foodRecord,
+                              ),
+                            );
                       },
                       child: Material(
                         color: Theme.of(context).cardTheme.color,
