@@ -29,7 +29,7 @@ class DatePicker extends StatelessWidget {
         }
       },
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        // mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           if (_currentDate.isToday)

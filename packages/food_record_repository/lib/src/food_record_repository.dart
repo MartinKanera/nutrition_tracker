@@ -14,9 +14,17 @@ class FoodRecordRepository {
     throw UnimplementedError();
   }
 
-  Future<List<FoodRecord>> getFoodForDay(DateTime date) async {
-    final records = await _dao.getFoodForDay(date);
+  Stream<List<FoodRecord>> watchFoodForDay(DateTime date) {
+    return _dao
+        .getFoodForDay(date)
+        .map((records) => records.map((record) => record.toModel()).toList());
+  }
 
-    return records.map((model) => model.toModel()).toList();
+  Future<void> updateFoodRecord(FoodRecord record) async {
+    await _dao.updateFoodRecord(record.toEntity());
+  }
+
+  Future<void> deleteFoodRecord(FoodRecord record) async {
+    await _dao.deleteFoodRecordById(record.id!);
   }
 }

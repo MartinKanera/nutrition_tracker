@@ -16,42 +16,49 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$OverviewEvent {
-  DateTime get date => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime date) dayChanged,
+    required TResult Function(FoodRecord foodRecord) deleteFoodRecord,
+    required TResult Function(FoodRecord foodRecord) updateFoodRecord,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DateTime date)? dayChanged,
+    TResult? Function(FoodRecord foodRecord)? deleteFoodRecord,
+    TResult? Function(FoodRecord foodRecord)? updateFoodRecord,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime date)? dayChanged,
+    TResult Function(FoodRecord foodRecord)? deleteFoodRecord,
+    TResult Function(FoodRecord foodRecord)? updateFoodRecord,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_DayChanged value) dayChanged,
+    required TResult Function(_DeleteFoodRecord value) deleteFoodRecord,
+    required TResult Function(_UpdateFoodRecord value) updateFoodRecord,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_DayChanged value)? dayChanged,
+    TResult? Function(_DeleteFoodRecord value)? deleteFoodRecord,
+    TResult? Function(_UpdateFoodRecord value)? updateFoodRecord,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_DayChanged value)? dayChanged,
+    TResult Function(_DeleteFoodRecord value)? deleteFoodRecord,
+    TResult Function(_UpdateFoodRecord value)? updateFoodRecord,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $OverviewEventCopyWith<OverviewEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,8 +67,6 @@ abstract class $OverviewEventCopyWith<$Res> {
   factory $OverviewEventCopyWith(
           OverviewEvent value, $Res Function(OverviewEvent) then) =
       _$OverviewEventCopyWithImpl<$Res, OverviewEvent>;
-  @useResult
-  $Res call({DateTime date});
 }
 
 /// @nodoc
@@ -73,28 +78,13 @@ class _$OverviewEventCopyWithImpl<$Res, $Val extends OverviewEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? date = null,
-  }) {
-    return _then(_value.copyWith(
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$DayChangedImplCopyWith<$Res>
-    implements $OverviewEventCopyWith<$Res> {
+abstract class _$$DayChangedImplCopyWith<$Res> {
   factory _$$DayChangedImplCopyWith(
           _$DayChangedImpl value, $Res Function(_$DayChangedImpl) then) =
       __$$DayChangedImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({DateTime date});
 }
@@ -155,6 +145,8 @@ class _$DayChangedImpl implements _DayChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime date) dayChanged,
+    required TResult Function(FoodRecord foodRecord) deleteFoodRecord,
+    required TResult Function(FoodRecord foodRecord) updateFoodRecord,
   }) {
     return dayChanged(date);
   }
@@ -163,6 +155,8 @@ class _$DayChangedImpl implements _DayChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DateTime date)? dayChanged,
+    TResult? Function(FoodRecord foodRecord)? deleteFoodRecord,
+    TResult? Function(FoodRecord foodRecord)? updateFoodRecord,
   }) {
     return dayChanged?.call(date);
   }
@@ -171,6 +165,8 @@ class _$DayChangedImpl implements _DayChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime date)? dayChanged,
+    TResult Function(FoodRecord foodRecord)? deleteFoodRecord,
+    TResult Function(FoodRecord foodRecord)? updateFoodRecord,
     required TResult orElse(),
   }) {
     if (dayChanged != null) {
@@ -183,6 +179,8 @@ class _$DayChangedImpl implements _DayChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_DayChanged value) dayChanged,
+    required TResult Function(_DeleteFoodRecord value) deleteFoodRecord,
+    required TResult Function(_UpdateFoodRecord value) updateFoodRecord,
   }) {
     return dayChanged(this);
   }
@@ -191,6 +189,8 @@ class _$DayChangedImpl implements _DayChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_DayChanged value)? dayChanged,
+    TResult? Function(_DeleteFoodRecord value)? deleteFoodRecord,
+    TResult? Function(_UpdateFoodRecord value)? updateFoodRecord,
   }) {
     return dayChanged?.call(this);
   }
@@ -199,6 +199,8 @@ class _$DayChangedImpl implements _DayChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_DayChanged value)? dayChanged,
+    TResult Function(_DeleteFoodRecord value)? deleteFoodRecord,
+    TResult Function(_UpdateFoodRecord value)? updateFoodRecord,
     required TResult orElse(),
   }) {
     if (dayChanged != null) {
@@ -211,11 +213,313 @@ class _$DayChangedImpl implements _DayChanged {
 abstract class _DayChanged implements OverviewEvent {
   const factory _DayChanged(final DateTime date) = _$DayChangedImpl;
 
-  @override
   DateTime get date;
-  @override
   @JsonKey(ignore: true)
   _$$DayChangedImplCopyWith<_$DayChangedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteFoodRecordImplCopyWith<$Res> {
+  factory _$$DeleteFoodRecordImplCopyWith(_$DeleteFoodRecordImpl value,
+          $Res Function(_$DeleteFoodRecordImpl) then) =
+      __$$DeleteFoodRecordImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({FoodRecord foodRecord});
+
+  $FoodRecordCopyWith<$Res> get foodRecord;
+}
+
+/// @nodoc
+class __$$DeleteFoodRecordImplCopyWithImpl<$Res>
+    extends _$OverviewEventCopyWithImpl<$Res, _$DeleteFoodRecordImpl>
+    implements _$$DeleteFoodRecordImplCopyWith<$Res> {
+  __$$DeleteFoodRecordImplCopyWithImpl(_$DeleteFoodRecordImpl _value,
+      $Res Function(_$DeleteFoodRecordImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? foodRecord = null,
+  }) {
+    return _then(_$DeleteFoodRecordImpl(
+      foodRecord: null == foodRecord
+          ? _value.foodRecord
+          : foodRecord // ignore: cast_nullable_to_non_nullable
+              as FoodRecord,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FoodRecordCopyWith<$Res> get foodRecord {
+    return $FoodRecordCopyWith<$Res>(_value.foodRecord, (value) {
+      return _then(_value.copyWith(foodRecord: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$DeleteFoodRecordImpl implements _DeleteFoodRecord {
+  const _$DeleteFoodRecordImpl({required this.foodRecord});
+
+  @override
+  final FoodRecord foodRecord;
+
+  @override
+  String toString() {
+    return 'OverviewEvent.deleteFoodRecord(foodRecord: $foodRecord)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteFoodRecordImpl &&
+            (identical(other.foodRecord, foodRecord) ||
+                other.foodRecord == foodRecord));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, foodRecord);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteFoodRecordImplCopyWith<_$DeleteFoodRecordImpl> get copyWith =>
+      __$$DeleteFoodRecordImplCopyWithImpl<_$DeleteFoodRecordImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTime date) dayChanged,
+    required TResult Function(FoodRecord foodRecord) deleteFoodRecord,
+    required TResult Function(FoodRecord foodRecord) updateFoodRecord,
+  }) {
+    return deleteFoodRecord(foodRecord);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime date)? dayChanged,
+    TResult? Function(FoodRecord foodRecord)? deleteFoodRecord,
+    TResult? Function(FoodRecord foodRecord)? updateFoodRecord,
+  }) {
+    return deleteFoodRecord?.call(foodRecord);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime date)? dayChanged,
+    TResult Function(FoodRecord foodRecord)? deleteFoodRecord,
+    TResult Function(FoodRecord foodRecord)? updateFoodRecord,
+    required TResult orElse(),
+  }) {
+    if (deleteFoodRecord != null) {
+      return deleteFoodRecord(foodRecord);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_DayChanged value) dayChanged,
+    required TResult Function(_DeleteFoodRecord value) deleteFoodRecord,
+    required TResult Function(_UpdateFoodRecord value) updateFoodRecord,
+  }) {
+    return deleteFoodRecord(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_DayChanged value)? dayChanged,
+    TResult? Function(_DeleteFoodRecord value)? deleteFoodRecord,
+    TResult? Function(_UpdateFoodRecord value)? updateFoodRecord,
+  }) {
+    return deleteFoodRecord?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_DayChanged value)? dayChanged,
+    TResult Function(_DeleteFoodRecord value)? deleteFoodRecord,
+    TResult Function(_UpdateFoodRecord value)? updateFoodRecord,
+    required TResult orElse(),
+  }) {
+    if (deleteFoodRecord != null) {
+      return deleteFoodRecord(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteFoodRecord implements OverviewEvent {
+  const factory _DeleteFoodRecord({required final FoodRecord foodRecord}) =
+      _$DeleteFoodRecordImpl;
+
+  FoodRecord get foodRecord;
+  @JsonKey(ignore: true)
+  _$$DeleteFoodRecordImplCopyWith<_$DeleteFoodRecordImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateFoodRecordImplCopyWith<$Res> {
+  factory _$$UpdateFoodRecordImplCopyWith(_$UpdateFoodRecordImpl value,
+          $Res Function(_$UpdateFoodRecordImpl) then) =
+      __$$UpdateFoodRecordImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({FoodRecord foodRecord});
+
+  $FoodRecordCopyWith<$Res> get foodRecord;
+}
+
+/// @nodoc
+class __$$UpdateFoodRecordImplCopyWithImpl<$Res>
+    extends _$OverviewEventCopyWithImpl<$Res, _$UpdateFoodRecordImpl>
+    implements _$$UpdateFoodRecordImplCopyWith<$Res> {
+  __$$UpdateFoodRecordImplCopyWithImpl(_$UpdateFoodRecordImpl _value,
+      $Res Function(_$UpdateFoodRecordImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? foodRecord = null,
+  }) {
+    return _then(_$UpdateFoodRecordImpl(
+      foodRecord: null == foodRecord
+          ? _value.foodRecord
+          : foodRecord // ignore: cast_nullable_to_non_nullable
+              as FoodRecord,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FoodRecordCopyWith<$Res> get foodRecord {
+    return $FoodRecordCopyWith<$Res>(_value.foodRecord, (value) {
+      return _then(_value.copyWith(foodRecord: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UpdateFoodRecordImpl implements _UpdateFoodRecord {
+  const _$UpdateFoodRecordImpl({required this.foodRecord});
+
+  @override
+  final FoodRecord foodRecord;
+
+  @override
+  String toString() {
+    return 'OverviewEvent.updateFoodRecord(foodRecord: $foodRecord)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateFoodRecordImpl &&
+            (identical(other.foodRecord, foodRecord) ||
+                other.foodRecord == foodRecord));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, foodRecord);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateFoodRecordImplCopyWith<_$UpdateFoodRecordImpl> get copyWith =>
+      __$$UpdateFoodRecordImplCopyWithImpl<_$UpdateFoodRecordImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTime date) dayChanged,
+    required TResult Function(FoodRecord foodRecord) deleteFoodRecord,
+    required TResult Function(FoodRecord foodRecord) updateFoodRecord,
+  }) {
+    return updateFoodRecord(foodRecord);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime date)? dayChanged,
+    TResult? Function(FoodRecord foodRecord)? deleteFoodRecord,
+    TResult? Function(FoodRecord foodRecord)? updateFoodRecord,
+  }) {
+    return updateFoodRecord?.call(foodRecord);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime date)? dayChanged,
+    TResult Function(FoodRecord foodRecord)? deleteFoodRecord,
+    TResult Function(FoodRecord foodRecord)? updateFoodRecord,
+    required TResult orElse(),
+  }) {
+    if (updateFoodRecord != null) {
+      return updateFoodRecord(foodRecord);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_DayChanged value) dayChanged,
+    required TResult Function(_DeleteFoodRecord value) deleteFoodRecord,
+    required TResult Function(_UpdateFoodRecord value) updateFoodRecord,
+  }) {
+    return updateFoodRecord(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_DayChanged value)? dayChanged,
+    TResult? Function(_DeleteFoodRecord value)? deleteFoodRecord,
+    TResult? Function(_UpdateFoodRecord value)? updateFoodRecord,
+  }) {
+    return updateFoodRecord?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_DayChanged value)? dayChanged,
+    TResult Function(_DeleteFoodRecord value)? deleteFoodRecord,
+    TResult Function(_UpdateFoodRecord value)? updateFoodRecord,
+    required TResult orElse(),
+  }) {
+    if (updateFoodRecord != null) {
+      return updateFoodRecord(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateFoodRecord implements OverviewEvent {
+  const factory _UpdateFoodRecord({required final FoodRecord foodRecord}) =
+      _$UpdateFoodRecordImpl;
+
+  FoodRecord get foodRecord;
+  @JsonKey(ignore: true)
+  _$$UpdateFoodRecordImplCopyWith<_$UpdateFoodRecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -226,7 +530,9 @@ mixin _$OverviewState {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime date) initial,
     required TResult Function(DateTime date) loading,
-    required TResult Function(DateTime date, List<FoodRecord> foodRecords,
+    required TResult Function(
+            DateTime date,
+            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
             OverviewStatistics statistics)
         success,
     required TResult Function(DateTime date, OverviewIssue issue) failure,
@@ -236,7 +542,9 @@ mixin _$OverviewState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DateTime date)? initial,
     TResult? Function(DateTime date)? loading,
-    TResult? Function(DateTime date, List<FoodRecord> foodRecords,
+    TResult? Function(
+            DateTime date,
+            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
             OverviewStatistics statistics)?
         success,
     TResult? Function(DateTime date, OverviewIssue issue)? failure,
@@ -246,7 +554,9 @@ mixin _$OverviewState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime date)? initial,
     TResult Function(DateTime date)? loading,
-    TResult Function(DateTime date, List<FoodRecord> foodRecords,
+    TResult Function(
+            DateTime date,
+            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
             OverviewStatistics statistics)?
         success,
     TResult Function(DateTime date, OverviewIssue issue)? failure,
@@ -385,7 +695,9 @@ class _$InitialStateImpl implements InitialState {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime date) initial,
     required TResult Function(DateTime date) loading,
-    required TResult Function(DateTime date, List<FoodRecord> foodRecords,
+    required TResult Function(
+            DateTime date,
+            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
             OverviewStatistics statistics)
         success,
     required TResult Function(DateTime date, OverviewIssue issue) failure,
@@ -398,7 +710,9 @@ class _$InitialStateImpl implements InitialState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DateTime date)? initial,
     TResult? Function(DateTime date)? loading,
-    TResult? Function(DateTime date, List<FoodRecord> foodRecords,
+    TResult? Function(
+            DateTime date,
+            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
             OverviewStatistics statistics)?
         success,
     TResult? Function(DateTime date, OverviewIssue issue)? failure,
@@ -411,7 +725,9 @@ class _$InitialStateImpl implements InitialState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime date)? initial,
     TResult Function(DateTime date)? loading,
-    TResult Function(DateTime date, List<FoodRecord> foodRecords,
+    TResult Function(
+            DateTime date,
+            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
             OverviewStatistics statistics)?
         success,
     TResult Function(DateTime date, OverviewIssue issue)? failure,
@@ -541,7 +857,9 @@ class _$LoadingStateImpl implements LoadingState {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime date) initial,
     required TResult Function(DateTime date) loading,
-    required TResult Function(DateTime date, List<FoodRecord> foodRecords,
+    required TResult Function(
+            DateTime date,
+            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
             OverviewStatistics statistics)
         success,
     required TResult Function(DateTime date, OverviewIssue issue) failure,
@@ -554,7 +872,9 @@ class _$LoadingStateImpl implements LoadingState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DateTime date)? initial,
     TResult? Function(DateTime date)? loading,
-    TResult? Function(DateTime date, List<FoodRecord> foodRecords,
+    TResult? Function(
+            DateTime date,
+            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
             OverviewStatistics statistics)?
         success,
     TResult? Function(DateTime date, OverviewIssue issue)? failure,
@@ -567,7 +887,9 @@ class _$LoadingStateImpl implements LoadingState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime date)? initial,
     TResult Function(DateTime date)? loading,
-    TResult Function(DateTime date, List<FoodRecord> foodRecords,
+    TResult Function(
+            DateTime date,
+            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
             OverviewStatistics statistics)?
         success,
     TResult Function(DateTime date, OverviewIssue issue)? failure,
@@ -639,7 +961,7 @@ abstract class _$$SuccessStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {DateTime date,
-      List<FoodRecord> foodRecords,
+      Map<MealType, List<FoodRecord>> foodGroupedByMealType,
       OverviewStatistics statistics});
 }
 
@@ -655,7 +977,7 @@ class __$$SuccessStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? date = null,
-    Object? foodRecords = null,
+    Object? foodGroupedByMealType = null,
     Object? statistics = null,
   }) {
     return _then(_$SuccessStateImpl(
@@ -663,10 +985,10 @@ class __$$SuccessStateImplCopyWithImpl<$Res>
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      foodRecords: null == foodRecords
-          ? _value._foodRecords
-          : foodRecords // ignore: cast_nullable_to_non_nullable
-              as List<FoodRecord>,
+      foodGroupedByMealType: null == foodGroupedByMealType
+          ? _value._foodGroupedByMealType
+          : foodGroupedByMealType // ignore: cast_nullable_to_non_nullable
+              as Map<MealType, List<FoodRecord>>,
       statistics: null == statistics
           ? _value.statistics
           : statistics // ignore: cast_nullable_to_non_nullable
@@ -680,19 +1002,19 @@ class __$$SuccessStateImplCopyWithImpl<$Res>
 class _$SuccessStateImpl implements SuccessState {
   const _$SuccessStateImpl(
       {required this.date,
-      final List<FoodRecord> foodRecords = const [],
+      required final Map<MealType, List<FoodRecord>> foodGroupedByMealType,
       required this.statistics})
-      : _foodRecords = foodRecords;
+      : _foodGroupedByMealType = foodGroupedByMealType;
 
   @override
   final DateTime date;
-  final List<FoodRecord> _foodRecords;
+  final Map<MealType, List<FoodRecord>> _foodGroupedByMealType;
   @override
-  @JsonKey()
-  List<FoodRecord> get foodRecords {
-    if (_foodRecords is EqualUnmodifiableListView) return _foodRecords;
+  Map<MealType, List<FoodRecord>> get foodGroupedByMealType {
+    if (_foodGroupedByMealType is EqualUnmodifiableMapView)
+      return _foodGroupedByMealType;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_foodRecords);
+    return EqualUnmodifiableMapView(_foodGroupedByMealType);
   }
 
   @override
@@ -700,7 +1022,7 @@ class _$SuccessStateImpl implements SuccessState {
 
   @override
   String toString() {
-    return 'OverviewState.success(date: $date, foodRecords: $foodRecords, statistics: $statistics)';
+    return 'OverviewState.success(date: $date, foodGroupedByMealType: $foodGroupedByMealType, statistics: $statistics)';
   }
 
   @override
@@ -710,14 +1032,14 @@ class _$SuccessStateImpl implements SuccessState {
             other is _$SuccessStateImpl &&
             (identical(other.date, date) || other.date == date) &&
             const DeepCollectionEquality()
-                .equals(other._foodRecords, _foodRecords) &&
+                .equals(other._foodGroupedByMealType, _foodGroupedByMealType) &&
             (identical(other.statistics, statistics) ||
                 other.statistics == statistics));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, date,
-      const DeepCollectionEquality().hash(_foodRecords), statistics);
+      const DeepCollectionEquality().hash(_foodGroupedByMealType), statistics);
 
   @JsonKey(ignore: true)
   @override
@@ -730,12 +1052,14 @@ class _$SuccessStateImpl implements SuccessState {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime date) initial,
     required TResult Function(DateTime date) loading,
-    required TResult Function(DateTime date, List<FoodRecord> foodRecords,
+    required TResult Function(
+            DateTime date,
+            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
             OverviewStatistics statistics)
         success,
     required TResult Function(DateTime date, OverviewIssue issue) failure,
   }) {
-    return success(date, foodRecords, statistics);
+    return success(date, foodGroupedByMealType, statistics);
   }
 
   @override
@@ -743,12 +1067,14 @@ class _$SuccessStateImpl implements SuccessState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DateTime date)? initial,
     TResult? Function(DateTime date)? loading,
-    TResult? Function(DateTime date, List<FoodRecord> foodRecords,
+    TResult? Function(
+            DateTime date,
+            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
             OverviewStatistics statistics)?
         success,
     TResult? Function(DateTime date, OverviewIssue issue)? failure,
   }) {
-    return success?.call(date, foodRecords, statistics);
+    return success?.call(date, foodGroupedByMealType, statistics);
   }
 
   @override
@@ -756,14 +1082,16 @@ class _$SuccessStateImpl implements SuccessState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime date)? initial,
     TResult Function(DateTime date)? loading,
-    TResult Function(DateTime date, List<FoodRecord> foodRecords,
+    TResult Function(
+            DateTime date,
+            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
             OverviewStatistics statistics)?
         success,
     TResult Function(DateTime date, OverviewIssue issue)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(date, foodRecords, statistics);
+      return success(date, foodGroupedByMealType, statistics);
     }
     return orElse();
   }
@@ -809,12 +1137,12 @@ class _$SuccessStateImpl implements SuccessState {
 abstract class SuccessState implements OverviewState {
   const factory SuccessState(
       {required final DateTime date,
-      final List<FoodRecord> foodRecords,
+      required final Map<MealType, List<FoodRecord>> foodGroupedByMealType,
       required final OverviewStatistics statistics}) = _$SuccessStateImpl;
 
   @override
   DateTime get date;
-  List<FoodRecord> get foodRecords;
+  Map<MealType, List<FoodRecord>> get foodGroupedByMealType;
   OverviewStatistics get statistics;
   @override
   @JsonKey(ignore: true)
@@ -898,7 +1226,9 @@ class _$FailureStateImpl implements FailureState {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime date) initial,
     required TResult Function(DateTime date) loading,
-    required TResult Function(DateTime date, List<FoodRecord> foodRecords,
+    required TResult Function(
+            DateTime date,
+            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
             OverviewStatistics statistics)
         success,
     required TResult Function(DateTime date, OverviewIssue issue) failure,
@@ -911,7 +1241,9 @@ class _$FailureStateImpl implements FailureState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DateTime date)? initial,
     TResult? Function(DateTime date)? loading,
-    TResult? Function(DateTime date, List<FoodRecord> foodRecords,
+    TResult? Function(
+            DateTime date,
+            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
             OverviewStatistics statistics)?
         success,
     TResult? Function(DateTime date, OverviewIssue issue)? failure,
@@ -924,7 +1256,9 @@ class _$FailureStateImpl implements FailureState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime date)? initial,
     TResult Function(DateTime date)? loading,
-    TResult Function(DateTime date, List<FoodRecord> foodRecords,
+    TResult Function(
+            DateTime date,
+            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
             OverviewStatistics statistics)?
         success,
     TResult Function(DateTime date, OverviewIssue issue)? failure,

@@ -5,7 +5,6 @@ part 'food_record_entity.g.dart';
 @Collection(accessor: 'foodRecords')
 class FoodRecordEntity {
   FoodRecordEntity({
-    required this.id,
     required this.name,
     required this.grams,
     required this.caloriesPer100g,
@@ -17,6 +16,7 @@ class FoodRecordEntity {
     required this.sugarsPer100g,
     required this.date,
     required this.mealType,
+    this.id = Isar.autoIncrement,
   });
 
   final Id id;

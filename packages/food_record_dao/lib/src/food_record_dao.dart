@@ -8,9 +8,22 @@ class FoodRecordDao {
 
   final Isar _isar;
 
-  Future<List<FoodRecordEntity>> getFoodForDay(DateTime date) async {
-    final query = _isar.foodRecords.filter().dateEqualTo(date);
+  Stream<List<FoodRecordEntity>> getFoodForDay(DateTime date) {
+    return _isar.foodRecords
+        .filter()
+        .dateEqualTo(date)
+        .watch(fireImmediately: true);
+  }
 
-    return query.findAll();
+  Future<void> updateFoodRecord(FoodRecordEntity record) async {
+    await _isar.writeTxn(() async {
+      await _isar.foodRecords.put(record);
+    });
+  }
+
+  Future<void> deleteFoodRecordById(Id id) async {
+    await _isar.writeTxn(() async {
+      await _isar.foodRecords.delete(id);
+    });
   }
 }

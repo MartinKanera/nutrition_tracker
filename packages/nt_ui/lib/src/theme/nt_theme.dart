@@ -160,10 +160,6 @@ class NtTheme {
       shadowColor: Colors.black.withAlpha(100),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
-        side: BorderSide(
-          color: Colors.grey.shade200,
-          width: 1,
-        ),
       ),
       color: _colorScheme.surface,
       margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
@@ -173,9 +169,10 @@ class NtTheme {
   ElevatedButtonThemeData get _elevatedButtonThemeData {
     return ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        elevation: 2,
+        elevation: 6,
+        surfaceTintColor: _colorScheme.primary,
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       ),
     );
   }

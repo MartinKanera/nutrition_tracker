@@ -39,5 +39,25 @@
     "sugars": "Sugars",
     "@sugars": {
         "description": "Label for the sugars indicator"
+    },
+    "breakfast": "Breakfast",
+    "@breakfast": {
+        "description": "Label for the breakfast section"
+    },
+    "morningSnack": "Morning Snack",
+    "@morningSnack": {
+        "description": "Label for the morning snack section"
+    },
+    "lunch": "Lunch",
+    "@lunch": {
+        "description": "Label for the lunch section"
+    },
+    "afternoonSnack": "Afternoon Snack",
+    "@afternoonSnack": {
+        "description": "Label for the afternoon snack section"
+    },
+    "dinner": "Dinner",
+    "@dinner": {
+        "description": "Label for the dinner section"
     }
 }

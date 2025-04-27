@@ -43,7 +43,6 @@ class MockSeeder {
       ]);
 
       await _isar.foodRecords.putAll([
-        // 2 dny zpátky
         FoodRecordEntity(
           id: 1,
           name: 'Oatmeal',
@@ -72,8 +71,6 @@ class MockSeeder {
           date: now.subtract(const Duration(days: 2)),
           mealType: MealType.lunch.index,
         ),
-
-        // 1 den zpátky
         FoodRecordEntity(
           id: 3,
           name: 'Greek Yogurt',
@@ -102,12 +99,24 @@ class MockSeeder {
           date: now.subtract(const Duration(days: 1)),
           mealType: MealType.dinner.index,
         ),
-
-        // dnešek
         FoodRecordEntity(
           id: 5,
           name: 'Scrambled Eggs',
           grams: 180,
+          caloriesPer100g: 150,
+          proteinPer100g: 12,
+          carbsPer100g: 1.5,
+          fatPer100g: 11,
+          saturatedFatPer100g: 3.0,
+          fiberPer100g: 0.0,
+          sugarsPer100g: 0.5,
+          date: now,
+          mealType: MealType.breakfast.index,
+        ),
+        FoodRecordEntity(
+          id: 8,
+          name: 'Oatmeal',
+          grams: 250,
           caloriesPer100g: 150,
           proteinPer100g: 12,
           carbsPer100g: 1.5,
