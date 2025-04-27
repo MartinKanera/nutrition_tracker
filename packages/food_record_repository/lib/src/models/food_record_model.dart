@@ -1,6 +1,7 @@
 import 'package:food_record_dao/food_record_dao.dart';
 import 'package:food_record_repository/src/models/meal_type.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:nutritionix_api_client/src/models/models.dart';
 
 part 'food_record_model.freezed.dart';
 
@@ -88,6 +89,31 @@ extension FoodRecordModelExtension on FoodRecord {
       sugarsPer100g: sugarsPer100g,
       date: date,
       mealType: mealType.index,
+    );
+  }
+}
+
+extension SearchFoodItemExtension on FoodItem {
+  FoodRecord toModel() {
+    return FoodRecord(
+      name: foodName,
+      grams: grams,
+      calories: calories,
+      caloriesPer100g: calories / 100,
+      protein: protein,
+      proteinPer100g: protein / 100,
+      carbs: carbs,
+      carbsPer100g: carbs / 100,
+      fat: fat,
+      fatPer100g: fat / 100,
+      saturatedFat: saturatedFat,
+      saturatedFatPer100g: saturatedFat / 100,
+      fiber: fiber,
+      fiberPer100g: fiber / 100,
+      sugars: sugars,
+      sugarsPer100g: sugars / 100,
+      date: DateTime.now(),
+      mealType: MealType.breakfast,
     );
   }
 }
