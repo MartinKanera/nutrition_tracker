@@ -5,7 +5,6 @@ import 'package:isar/isar.dart';
 import 'package:nutrition_tracker/app/app.dart';
 import 'package:nutrition_tracker/bootstrap.dart';
 import 'package:nutrition_tracker/seeder/mock_seeder.dart';
-import 'package:nutritionix_api_client/nutritionix_api_client.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:user_measurement_dao/user_measurement_dao.dart';
 import 'package:user_measurement_repository/user_measurement_repository.dart';
@@ -27,13 +26,6 @@ void main() {
     final foodRecordRepository = FoodRecordRepository(dao: foodRecordDao);
     final userMeasurementRepository =
         UserMeasurementRepository(dao: userMeasurementDao);
-
-    // Api
-    final nutritionixApiClient = NutritionixApiClient();
-
-    nutritionixApiClient.getFoodItem('apple').then((value) {
-      print(value);
-    });
 
     await MockSeeder(isar: isar).seed();
 
