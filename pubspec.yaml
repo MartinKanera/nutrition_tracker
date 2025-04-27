@@ -1,5 +1,5 @@
 name: nutrition_tracker
-description: A Very Good Project created by Very Good CLI.
+description: Nutrition Tracker
 version: 1.0.0+1
 publish_to: none
 
@@ -12,6 +12,7 @@ workspace:
   - packages/food_record_repository
   - packages/user_measurement_dao
   - packages/user_measurement_repository
+  - packages/nutritionix_api_client
 
 dependencies:
   bloc: ^9.0.0
@@ -28,6 +29,7 @@ dependencies:
   isar: ^3.1.0+1
   isar_flutter_libs: ^3.1.0+1
   nt_ui: 0.1.0+1
+  nutritionix_api_client: 0.1.0+1
   path_provider: ^2.1.5
   user_measurement_dao: 0.1.0+1
   user_measurement_repository: 0.1.0+1
