@@ -59,5 +59,45 @@
     "dinner": "Dinner",
     "@dinner": {
         "description": "Label for the dinner section"
+    },
+    "grams": "Grams",
+    "@grams": {
+        "description": "Label for the grams input"
+    },
+    "save": "Save",
+    "@save": {
+        "description": "Label for the save button"
+    },
+    "searchFood": "Search Food",
+    "@searchFood": {
+        "description": "Label for the search food modal"
+    },
+    "searchFoodHint": "Search foods (e.g., apple, chicken)",
+    "@searchFoodHint": {
+        "description": "Hint for the search food modal"
+    },
+    "resultsFor": "Results for",
+    "@resultsFor": {
+        "description": "Label for the results for state"
+    },
+    "noResults": "No results found",
+    "@noResults": {
+        "description": "Label for the no results found state"
+    },
+    "tryAgain": "Try different keywords or food items",
+    "@tryAgain": {
+        "description": "Label for the try again button"
+    },
+    "searchFoodItems": "Search for food items",
+    "@searchFoodItems": {
+        "description": "Label for the search food items modal"
+    },
+    "searchHelp": "Type in the search bar above to find food items",
+    "@searchHelp": {
+        "description": "Label for the search food items modal"
+    },
+    "tapToSelectThisFoodItem": "Tap to select this food item",
+    "@tapToSelectThisFoodItem": {
+        "description": "Label for the tap to select this food item"
     }
 }

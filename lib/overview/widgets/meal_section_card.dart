@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_api_repository/food_api_repository.dart';
 import 'package:food_record_repository/food_record_repository.dart';
 import 'package:nutrition_tracker/overview/overview.dart';
+import 'package:nutrition_tracker/search_food/bloc/search_food_bloc.dart';
+import 'package:nutrition_tracker/search_food/view/search_food_view.dart';
 
 class MealSectionCard extends StatelessWidget {
   const MealSectionCard({
@@ -30,7 +33,19 @@ class MealSectionCard extends StatelessWidget {
                   child: Row(
                     children: [
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          showModalBottomSheet<Widget>(
+                            context: context,
+                            isScrollControlled: true,
+                            builder: (context) => BlocProvider(
+                              create: (context) => SearchFoodBloc(
+                                nutritionixFoodApiRepository: context
+                                    .read<NutritionixFoodApiRepository>(),
+                              ),
+                              child: const SearchFoodView(),
+                            ),
+                          );
+                        },
                         child: const Icon(
                           Icons.add_circle_outline_rounded,
                           size: 24,

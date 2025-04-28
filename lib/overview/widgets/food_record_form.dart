@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_record_repository/food_record_repository.dart';
+import 'package:nutrition_tracker/l10n/l10n.dart';
 
 class FoodRecordForm extends StatefulWidget {
   const FoodRecordForm({
@@ -45,12 +46,14 @@ class _FoodRecordFormState extends State<FoodRecordForm> {
         children: [
           Text(
             widget.foodRecord.name,
-            style: Theme.of(context).textTheme.titleLarge,
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
           ),
           TextField(
             controller: _gramsController,
             keyboardType: TextInputType.number,
-            decoration: const InputDecoration(labelText: 'Grams'),
+            decoration: InputDecoration(labelText: context.l10n.grams),
             onChanged: (value) {
               final grams = double.tryParse(value);
               if (grams != null && grams > 0) {
@@ -63,7 +66,7 @@ class _FoodRecordFormState extends State<FoodRecordForm> {
           Row(
             children: [
               Text(
-                'Calories',
+                context.l10n.calories,
                 style: Theme.of(context)
                     .textTheme
                     .labelLarge
@@ -76,7 +79,7 @@ class _FoodRecordFormState extends State<FoodRecordForm> {
           Row(
             children: [
               Text(
-                'Protein',
+                context.l10n.protein,
                 style: Theme.of(context)
                     .textTheme
                     .labelLarge
@@ -89,7 +92,7 @@ class _FoodRecordFormState extends State<FoodRecordForm> {
           Row(
             children: [
               Text(
-                'Carbs',
+                context.l10n.carbohydrates,
                 style: Theme.of(context)
                     .textTheme
                     .labelLarge
@@ -102,7 +105,7 @@ class _FoodRecordFormState extends State<FoodRecordForm> {
           Row(
             children: [
               Text(
-                'Fat',
+                context.l10n.fats,
                 style: Theme.of(context)
                     .textTheme
                     .labelLarge
@@ -142,7 +145,7 @@ class _FoodRecordFormState extends State<FoodRecordForm> {
               );
               widget.onSubmit(record);
             },
-            child: const Text('Save'),
+            child: Text(context.l10n.save),
           )
         ],
       ),

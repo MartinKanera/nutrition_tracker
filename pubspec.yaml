@@ -13,6 +13,7 @@ workspace:
   - packages/user_measurement_dao
   - packages/user_measurement_repository
   - packages/nutritionix_api_client
+  - packages/food_api_repository
 
 dependencies:
   bloc: ^9.0.0
@@ -21,6 +22,7 @@ dependencies:
   flutter_bloc: ^9.1.0
   flutter_localizations:
     sdk: flutter
+  food_api_repository: 0.1.0+1
   food_record_dao: 0.1.0+1
   food_record_repository: 0.1.0+1
   freezed_annotation: ^2.4.1
@@ -31,6 +33,7 @@ dependencies:
   nt_ui: 0.1.0+1
   nutritionix_api_client: 0.1.0+1
   path_provider: ^2.1.5
+  stream_transform: ^2.1.0
   user_measurement_dao: 0.1.0+1
   user_measurement_repository: 0.1.0+1
 

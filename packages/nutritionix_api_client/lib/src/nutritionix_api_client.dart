@@ -13,6 +13,10 @@ class NutritionixApiClient {
   final http.Client _client;
 
   Future<List<SearchFoodItem>> searchFoodItems(String query) async {
+    if (query.isEmpty) {
+      return [];
+    }
+
     final response = await _client.get(
       Uri.parse(searchUrl).replace(queryParameters: {'query': query}),
       headers: {

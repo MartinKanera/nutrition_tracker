@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:food_api_repository/food_api_repository.dart';
 import 'package:food_record_dao/food_record_dao.dart';
 import 'package:food_record_repository/food_record_repository.dart';
 import 'package:isar/isar.dart';
@@ -24,6 +25,7 @@ void main() {
 
     // Init Repositories
     final foodRecordRepository = FoodRecordRepository(dao: foodRecordDao);
+    final foodApiRepository = NutritionixFoodApiRepository();
     final userMeasurementRepository =
         UserMeasurementRepository(dao: userMeasurementDao);
 
@@ -31,6 +33,7 @@ void main() {
 
     return App(
       foodRecordRepository: foodRecordRepository,
+      foodApiRepository: foodApiRepository,
       userMeasurementRepository: userMeasurementRepository,
     );
   });
