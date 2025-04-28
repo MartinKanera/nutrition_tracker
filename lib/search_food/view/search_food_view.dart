@@ -1,11 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_api_repository/food_api_repository.dart';
+import 'package:food_record_repository/food_record_repository.dart';
 import 'package:nutrition_tracker/l10n/l10n.dart';
+import 'package:nutrition_tracker/overview/widgets/widgets.dart';
 import 'package:nutrition_tracker/search_food/bloc/search_food_bloc.dart'
     show SearchFoodBloc, SearchFoodEvent, SearchFoodState;
 
 class SearchFoodView extends StatelessWidget {
-  const SearchFoodView({super.key});
+  const SearchFoodView({required this.mealType, required this.date, super.key});
+
+  final MealType mealType;
+  final DateTime date;
+
+  FutureBuilder<FoodNutrients> _createRecordModal(
+      BuildContext context, FoodSearchResult clickedResult) {
+    return FutureBuilder(
+        future: context
+            .read<NutritionixFoodApiRepository>()
+            .getFoodNutrients(clickedResult.name),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+
+          final nutrients = snapshot.data!;
+
+          return FoodRecordForm(
+            foodRecordWithNutrients: FoodRecordWithNutrition(
+              record: FoodRecord(
+                name: clickedResult.name,
+                grams: 100,
+                date: date,
+                mealType: mealType,
+              ),
+              nutrients: nutrients,
+            ),
+          );
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -138,10 +173,14 @@ class SearchFoodView extends StatelessWidget {
                                 child: InkWell(
                                   borderRadius: BorderRadius.circular(12),
                                   onTap: () {
-                                    // Handle food selection
+                                    showModalBottomSheet<Widget>(
+                                      context: context,
+                                      builder: (context) =>
+                                          _createRecordModal(context, result),
+                                    );
                                   },
                                   child: Padding(
-                                    padding: const EdgeInsets.all(12.0),
+                                    padding: const EdgeInsets.all(12),
                                     child: Row(
                                       children: [
                                         // Image with error handling

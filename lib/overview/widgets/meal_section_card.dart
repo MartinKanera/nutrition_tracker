@@ -37,6 +37,8 @@ class MealSectionCard extends StatelessWidget {
                     children: [
                       GestureDetector(
                         onTap: () {
+                          final currentDate =
+                              context.read<OverviewBloc>().state.date;
                           showModalBottomSheet<Widget>(
                             context: context,
                             isScrollControlled: true,
@@ -45,7 +47,10 @@ class MealSectionCard extends StatelessWidget {
                                 nutritionixFoodApiRepository: context
                                     .read<NutritionixFoodApiRepository>(),
                               ),
-                              child: const SearchFoodView(),
+                              child: SearchFoodView(
+                                mealType: mealType,
+                                date: currentDate,
+                              ),
                             ),
                           );
                         },
@@ -123,12 +128,9 @@ class MealSectionCard extends StatelessWidget {
                         clipBehavior: isLastItem ? Clip.antiAlias : Clip.none,
                         child: InkWell(
                           onTap: () {
-                            final bloc = context.read<OverviewBloc>();
                             showModalBottomSheet<Widget>(
                               context: context,
                               builder: (context) => FoodRecordForm(
-                                date: bloc.state.date,
-                                mealType: mealType,
                                 foodRecordWithNutrients: foodRecord,
                               ),
                             );

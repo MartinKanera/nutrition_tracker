@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_record_repository/food_record_repository.dart';
-import 'package:go_router/go_router.dart';
 import 'package:nutrition_tracker/l10n/l10n.dart';
 
 class FoodRecordForm extends StatefulWidget {
   const FoodRecordForm({
     required this.foodRecordWithNutrients,
-    required this.date,
-    required this.mealType,
     super.key,
   });
   final FoodRecordWithNutrition foodRecordWithNutrients;
-  final DateTime date;
-  final MealType mealType;
 
   @override
   State<FoodRecordForm> createState() => _FoodRecordFormState();
@@ -74,7 +69,7 @@ class _FoodRecordFormState extends State<FoodRecordForm> {
               ),
               const Spacer(),
               Text(
-                '${calories.toStringAsFixed(1)} g',
+                '${calories.toStringAsFixed(1)} kcal',
               ),
             ],
           ),
@@ -129,12 +124,8 @@ class _FoodRecordFormState extends State<FoodRecordForm> {
               minimumSize: const Size(double.infinity, 50),
             ),
             onPressed: () async {
-              final record = FoodRecord(
-                id: widget.foodRecordWithNutrients.record.id,
-                name: widget.foodRecordWithNutrients.record.name,
+              final record = widget.foodRecordWithNutrients.record.copyWith(
                 grams: _grams,
-                date: widget.date,
-                mealType: widget.mealType,
               );
 
               await context
@@ -142,7 +133,8 @@ class _FoodRecordFormState extends State<FoodRecordForm> {
                   .updateFoodRecord(record);
 
               if (context.mounted) {
-                context.pop();
+                // Close all modals
+                Navigator.of(context).popUntil((route) => route.isFirst);
               }
             },
             child: Text(context.l10n.save),
