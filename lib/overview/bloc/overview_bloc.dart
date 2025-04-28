@@ -120,10 +120,18 @@ class OverviewBloc extends Bloc<OverviewEvent, OverviewState> {
           userMeasurement,
         );
 
+        final grouped = {
+          MealType.breakfast: <FoodRecordWithNutrition>[],
+          MealType.morningSnack: <FoodRecordWithNutrition>[],
+          MealType.lunch: <FoodRecordWithNutrition>[],
+          MealType.afternoonSnack: <FoodRecordWithNutrition>[],
+          MealType.dinner: <FoodRecordWithNutrition>[],
+        }..addAll(groupBy(records, (r) => r.record.mealType));
+
         return OverviewState.success(
           date: event.date,
           statistics: statistics,
-          foodGroupedByMealType: groupBy(records, (r) => r.record.mealType),
+          foodGroupedByMealType: grouped,
         );
       },
     );

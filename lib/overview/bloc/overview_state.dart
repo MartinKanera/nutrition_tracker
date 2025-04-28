@@ -51,7 +51,14 @@ sealed class OverviewState with _$OverviewState {
   }) = LoadingState;
   const factory OverviewState.success({
     required DateTime date,
-    required Map<MealType, List<FoodRecordWithNutrition>> foodGroupedByMealType,
+    @Default({
+      MealType.breakfast: <FoodRecordWithNutrition>[],
+      MealType.morningSnack: <FoodRecordWithNutrition>[],
+      MealType.lunch: <FoodRecordWithNutrition>[],
+      MealType.afternoonSnack: <FoodRecordWithNutrition>[],
+      MealType.dinner: <FoodRecordWithNutrition>[],
+    })
+    Map<MealType, List<FoodRecordWithNutrition>> foodGroupedByMealType,
     required OverviewStatistics statistics,
   }) = SuccessState;
   const factory OverviewState.failure({

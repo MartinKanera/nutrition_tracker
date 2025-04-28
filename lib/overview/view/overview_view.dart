@@ -4,6 +4,7 @@ import 'package:food_record_repository/food_record_repository.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nutrition_tracker/l10n/l10n.dart';
 import 'package:nutrition_tracker/overview/overview.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class OverviewView extends StatelessWidget {
   const OverviewView({super.key});
@@ -36,47 +37,56 @@ class OverviewView extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        if (state is LoadingState)
-                          const Center(child: CircularProgressIndicator())
-                        else if (state is SuccessState) ...[
-                          DailyProgress(statistics: state.statistics),
-                          const SizedBox(height: 16),
-                          MealSectionCard(
-                            title: context.l10n.breakfast,
-                            foodRecords: state.foodGroupedByMealType[
-                                    MealType.breakfast] ??
-                                [],
-                            mealType: MealType.breakfast,
-                          ),
-                          MealSectionCard(
-                            title: context.l10n.morningSnack,
-                            foodRecords: state.foodGroupedByMealType[
-                                    MealType.morningSnack] ??
-                                [],
-                            mealType: MealType.morningSnack,
-                          ),
-                          MealSectionCard(
-                            title: context.l10n.lunch,
-                            foodRecords:
-                                state.foodGroupedByMealType[MealType.lunch] ??
-                                    [],
-                            mealType: MealType.lunch,
-                          ),
-                          MealSectionCard(
-                            title: context.l10n.afternoonSnack,
-                            foodRecords: state.foodGroupedByMealType[
-                                    MealType.afternoonSnack] ??
-                                [],
-                            mealType: MealType.afternoonSnack,
-                          ),
-                          MealSectionCard(
-                            title: context.l10n.dinner,
-                            foodRecords:
-                                state.foodGroupedByMealType[MealType.dinner] ??
-                                    [],
-                            mealType: MealType.dinner,
-                          ),
-                        ],
+                        Skeletonizer(
+                          enabled: state is LoadingState,
+                          child: DailyProgress(
+                              statistics: state is SuccessState
+                                  ? state.statistics
+                                  : null),
+                        ),
+                        const SizedBox(height: 16),
+                        MealSectionCard(
+                          isLoading: state is LoadingState,
+                          title: context.l10n.breakfast,
+                          foodRecords: state is SuccessState
+                              ? state.foodGroupedByMealType[MealType.breakfast]!
+                              : const [],
+                          mealType: MealType.breakfast,
+                        ),
+                        MealSectionCard(
+                          isLoading: state is LoadingState,
+                          title: context.l10n.morningSnack,
+                          foodRecords: state is SuccessState
+                              ? state
+                                  .foodGroupedByMealType[MealType.morningSnack]!
+                              : const [],
+                          mealType: MealType.morningSnack,
+                        ),
+                        MealSectionCard(
+                          isLoading: state is LoadingState,
+                          title: context.l10n.lunch,
+                          foodRecords: state is SuccessState
+                              ? state.foodGroupedByMealType[MealType.lunch]!
+                              : const [],
+                          mealType: MealType.lunch,
+                        ),
+                        MealSectionCard(
+                          isLoading: state is LoadingState,
+                          title: context.l10n.afternoonSnack,
+                          foodRecords: state is SuccessState
+                              ? state.foodGroupedByMealType[
+                                  MealType.afternoonSnack]!
+                              : const [],
+                          mealType: MealType.afternoonSnack,
+                        ),
+                        MealSectionCard(
+                          isLoading: state is LoadingState,
+                          title: context.l10n.dinner,
+                          foodRecords: state is SuccessState
+                              ? state.foodGroupedByMealType[MealType.dinner]!
+                              : const [],
+                          mealType: MealType.dinner,
+                        ),
                       ],
                     ),
                   ),

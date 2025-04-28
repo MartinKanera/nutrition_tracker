@@ -1002,8 +1002,14 @@ class __$$SuccessStateImplCopyWithImpl<$Res>
 class _$SuccessStateImpl implements SuccessState {
   const _$SuccessStateImpl(
       {required this.date,
-      required final Map<MealType, List<FoodRecordWithNutrition>>
-          foodGroupedByMealType,
+      final Map<MealType, List<FoodRecordWithNutrition>> foodGroupedByMealType =
+          const {
+        MealType.breakfast: <FoodRecordWithNutrition>[],
+        MealType.morningSnack: <FoodRecordWithNutrition>[],
+        MealType.lunch: <FoodRecordWithNutrition>[],
+        MealType.afternoonSnack: <FoodRecordWithNutrition>[],
+        MealType.dinner: <FoodRecordWithNutrition>[]
+      },
       required this.statistics})
       : _foodGroupedByMealType = foodGroupedByMealType;
 
@@ -1011,6 +1017,7 @@ class _$SuccessStateImpl implements SuccessState {
   final DateTime date;
   final Map<MealType, List<FoodRecordWithNutrition>> _foodGroupedByMealType;
   @override
+  @JsonKey()
   Map<MealType, List<FoodRecordWithNutrition>> get foodGroupedByMealType {
     if (_foodGroupedByMealType is EqualUnmodifiableMapView)
       return _foodGroupedByMealType;
@@ -1138,8 +1145,7 @@ class _$SuccessStateImpl implements SuccessState {
 abstract class SuccessState implements OverviewState {
   const factory SuccessState(
       {required final DateTime date,
-      required final Map<MealType, List<FoodRecordWithNutrition>>
-          foodGroupedByMealType,
+      final Map<MealType, List<FoodRecordWithNutrition>> foodGroupedByMealType,
       required final OverviewStatistics statistics}) = _$SuccessStateImpl;
 
   @override

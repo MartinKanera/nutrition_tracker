@@ -5,18 +5,21 @@ import 'package:food_record_repository/food_record_repository.dart';
 import 'package:nutrition_tracker/overview/overview.dart';
 import 'package:nutrition_tracker/search_food/bloc/search_food_bloc.dart';
 import 'package:nutrition_tracker/search_food/view/search_food_view.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class MealSectionCard extends StatelessWidget {
   const MealSectionCard({
     required this.title,
-    required this.foodRecords,
     required this.mealType,
+    required this.isLoading,
+    this.foodRecords = const [],
     super.key,
   });
 
   final String title;
   final List<FoodRecordWithNutrition> foodRecords;
   final MealType mealType;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -57,12 +60,15 @@ class MealSectionCard extends StatelessWidget {
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
                       const Spacer(),
-                      Text(
-                        foodRecords.isEmpty
-                            ? '0 kcal'
-                            : '${foodRecords.map((r) => r.nutrients.calories).reduce(
-                                  (a, b) => a + b,
-                                ).toStringAsFixed(0)} kcal',
+                      Skeletonizer(
+                        enabled: isLoading,
+                        child: Text(
+                          foodRecords.isEmpty
+                              ? '0 kcal'
+                              : '${foodRecords.map((r) => r.nutrients.calories).reduce(
+                                    (a, b) => a + b,
+                                  ).toStringAsFixed(0)} kcal',
+                        ),
                       ),
                     ],
                   ),

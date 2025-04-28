@@ -33,6 +33,7 @@ dependencies:
   nt_ui: 0.1.0+1
   nutritionix_api_client: 0.1.0+1
   path_provider: ^2.1.5
+  skeletonizer: ^1.4.3
   stream_transform: ^2.1.0
   user_measurement_dao: 0.1.0+1
   user_measurement_repository: 0.1.0+1
