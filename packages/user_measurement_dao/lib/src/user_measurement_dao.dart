@@ -19,4 +19,19 @@ class UserMeasurementDao {
   Future<UserMeasurementEntity?> getLatestRecordByDay() {
     return _isar.userMeasurements.where().sortByDateDesc().findFirst();
   }
+
+  Future<void> updateRecord(UserMeasurementEntity entity) async {
+    await _isar.writeTxn<void>(() async {
+      final existingRecordByDay = await _isar.userMeasurements
+          .filter()
+          .dateEqualTo(entity.date)
+          .findFirst();
+
+      if (existingRecordByDay != null) {
+        entity.id = existingRecordByDay.id;
+      }
+
+      await _isar.userMeasurements.put(entity);
+    });
+  }
 }

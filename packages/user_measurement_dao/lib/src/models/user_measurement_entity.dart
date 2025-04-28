@@ -5,15 +5,15 @@ part 'user_measurement_entity.g.dart';
 @Collection(accessor: 'userMeasurements')
 class UserMeasurementEntity {
   UserMeasurementEntity({
-    required this.id,
     required this.weight,
     required this.height,
     required this.age,
     required this.activityLevelIndex,
     required this.date,
+    this.id = Isar.autoIncrement,
   });
 
-  final Id id;
+  Id id;
   final double weight;
   final double height;
   final int age;

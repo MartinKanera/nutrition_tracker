@@ -99,5 +99,45 @@
     "tapToSelectThisFoodItem": "Tap to select this food item",
     "@tapToSelectThisFoodItem": {
         "description": "Label for the tap to select this food item"
+    },
+    "tellUsAboutYourself": "Tell us about yourself",
+    "@tellUsAboutYourself": {
+        "description": "Label for the tell us about yourself section"
+    },
+    "weight": "Weight",
+    "@weight": {
+        "description": "Label for the weight input"
+    },
+    "height": "Height",
+    "@height": {
+        "description": "Label for the height input"
+    },
+    "age": "Age",
+    "@age": {
+        "description": "Label for the age input"
+    },
+    "activityLevel": "Activity Level",
+    "@activityLevel": {
+        "description": "Label for the activity level input"
+    },
+    "light": "Light",
+    "@light": {
+        "description": "Label for the light activity level"
+    },
+    "moderate": "Moderate",
+    "@moderate": {
+        "description": "Label for the moderate activity level"
+    },
+    "active": "Active",
+    "@active": {
+        "description": "Label for the active activity level"
+    },
+    "veryActive": "Very Active",
+    "@veryActive": {
+        "description": "Label for the very active activity level"
+    },
+    "years": "Years",
+    "@years": {
+        "description": "Label for the years input"
     }
 }

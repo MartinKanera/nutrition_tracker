@@ -84,7 +84,7 @@ class OverviewBloc extends Bloc<OverviewEvent, OverviewState> {
     emit(OverviewState.loading(date: event.date));
 
     final userMeasurement =
-        await userMeasurementRepository.getWeightForDay(event.date);
+        await userMeasurementRepository.getMeasurementForDay(event.date);
 
     if (userMeasurement == null) {
       emit(
