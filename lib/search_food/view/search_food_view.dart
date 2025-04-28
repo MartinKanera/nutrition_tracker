@@ -36,11 +36,9 @@ class SearchFoodView extends StatelessWidget {
                 padding: WidgetStateProperty.all(
                   const EdgeInsets.symmetric(horizontal: 16),
                 ),
+                autoFocus: true,
                 hintText: context.l10n.searchFoodHint,
                 leading: const Icon(Icons.search),
-                trailing: const <Widget>[
-                  Icon(Icons.mic),
-                ],
                 onChanged: (query) {
                   context.read<SearchFoodBloc>().add(
                         SearchFoodEvent.queryUpdated(query: query),
