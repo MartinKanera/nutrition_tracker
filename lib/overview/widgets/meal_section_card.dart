@@ -123,15 +123,7 @@ class MealSectionCard extends StatelessWidget {
                               builder: (context) => FoodRecordForm(
                                 date: bloc.state.date,
                                 mealType: mealType,
-                                foodRecord: foodRecord.record,
-                                onSubmit: (record) {
-                                  bloc.add(
-                                    OverviewEvent.updateFoodRecord(
-                                      foodRecord: record,
-                                    ),
-                                  );
-                                  Navigator.pop(context);
-                                },
+                                foodRecordWithNutrients: foodRecord,
                               ),
                             );
                           },

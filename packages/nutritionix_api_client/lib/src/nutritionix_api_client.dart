@@ -12,6 +12,9 @@ class NutritionixApiClient {
 
   final http.Client _client;
 
+  // In-memory cache for food items by name
+  final Map<String, FoodItem> _foodItemCache = {};
+
   Future<List<SearchFoodItem>> searchFoodItems(String query) async {
     if (query.isEmpty) {
       return [];
@@ -39,6 +42,12 @@ class NutritionixApiClient {
   }
 
   Future<FoodItem> getFoodItem(String name) async {
+    // Check cache first
+    if (_foodItemCache.containsKey(name)) {
+      return _foodItemCache[name]!;
+    }
+
+    // Not in cache, fetch from API
     final response = await _client.post(
       Uri.parse(nutrientsUrl),
       headers: {
@@ -55,6 +64,15 @@ class NutritionixApiClient {
 
     final nutrientsResponse = NutrientsResponse.fromJson(
         jsonDecode(response.body) as Map<String, dynamic>);
-    return nutrientsResponse.foods.first;
+    
+    if (nutrientsResponse.foods.isEmpty) {
+      throw Exception('No food item found for "$name"');
+    }
+    
+    final foodItem = nutrientsResponse.foods.first;
+
+    // Store in cache before returning
+    _foodItemCache[name] = foodItem;
+    return foodItem;
   }
 }

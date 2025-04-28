@@ -103,7 +103,10 @@ class OverviewBloc extends Bloc<OverviewEvent, OverviewState> {
           records.map((r) async {
             final nutrition =
                 await nutritionixFoodApiRepository.getFoodNutrients(r.name);
-            return FoodRecordWithNutrition(record: r, nutrients: nutrition);
+            return FoodRecordWithNutrition.fromNutrients(
+              record: r,
+              nutrients: nutrition,
+            );
           }),
         );
       },
