@@ -1,3 +1,4 @@
+import 'package:food_api_repository/food_api_repository.dart';
 import 'package:food_record_dao/food_record_dao.dart';
 import 'package:food_record_repository/src/models/meal_type.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -9,48 +10,50 @@ sealed class FoodRecord with _$FoodRecord {
   const factory FoodRecord({
     required String name,
     required double grams,
-    required double calories,
-    required double caloriesPer100g,
-    required double protein,
-    required double proteinPer100g,
-    required double carbs,
-    required double carbsPer100g,
-    required double fat,
-    required double fatPer100g,
-    required double saturatedFat,
-    required double saturatedFatPer100g,
-    required double fiber,
-    required double fiberPer100g,
-    required double sugars,
-    required double sugarsPer100g,
     required DateTime date,
     required MealType mealType,
     int? id,
   }) = _FoodRecord;
 }
 
+@freezed
+sealed class FoodRecordWithNutrition with _$FoodRecordWithNutrition {
+  const factory FoodRecordWithNutrition({
+    required FoodRecord record,
+    required FoodNutrients nutrients,
+  }) = _FoodRecordWithNutrition;
+
+  // Scale nutrients based on portion size
+  factory FoodRecordWithNutrition.fromNutrients({
+    required FoodRecord record,
+    required FoodNutrients nutrients,
+  }) {
+    final scale = record.grams / nutrients.grams;
+    final scaledNutrients = FoodNutrients(
+      name: nutrients.name,
+      grams: record.grams,
+      calories: nutrients.calories * scale,
+      protein: nutrients.protein * scale,
+      carbs: nutrients.carbs * scale,
+      fat: nutrients.fat * scale,
+      saturatedFat: nutrients.saturatedFat * scale,
+      fiber: nutrients.fiber * scale,
+      sugars: nutrients.sugars * scale,
+    );
+
+    return FoodRecordWithNutrition(
+      record: record,
+      nutrients: scaledNutrients,
+    );
+  }
+}
+
 extension FoodRecordEntityExtension on FoodRecordEntity {
   FoodRecord toModel() {
-    final factor = grams / 100;
-
     return FoodRecord(
       id: id,
       name: name,
       grams: grams,
-      calories: caloriesPer100g * factor,
-      caloriesPer100g: caloriesPer100g,
-      protein: proteinPer100g * factor,
-      proteinPer100g: proteinPer100g,
-      carbs: carbsPer100g * factor,
-      carbsPer100g: carbsPer100g,
-      fat: fatPer100g * factor,
-      fatPer100g: fatPer100g,
-      saturatedFat: saturatedFatPer100g * factor,
-      saturatedFatPer100g: saturatedFatPer100g,
-      fiber: fiberPer100g * factor,
-      fiberPer100g: fiberPer100g,
-      sugars: sugarsPer100g * factor,
-      sugarsPer100g: sugarsPer100g,
       date: date,
       mealType: MealType.values[mealType],
     );
@@ -64,13 +67,6 @@ extension FoodRecordModelExtension on FoodRecord {
         id: id!,
         name: name,
         grams: grams,
-        caloriesPer100g: caloriesPer100g,
-        proteinPer100g: proteinPer100g,
-        carbsPer100g: carbsPer100g,
-        fatPer100g: fatPer100g,
-        saturatedFatPer100g: saturatedFatPer100g,
-        fiberPer100g: fiberPer100g,
-        sugarsPer100g: sugarsPer100g,
         date: date,
         mealType: mealType.index,
       );
@@ -79,13 +75,6 @@ extension FoodRecordModelExtension on FoodRecord {
     return FoodRecordEntity(
       name: name,
       grams: grams,
-      caloriesPer100g: caloriesPer100g,
-      proteinPer100g: proteinPer100g,
-      carbsPer100g: carbsPer100g,
-      fatPer100g: fatPer100g,
-      saturatedFatPer100g: saturatedFatPer100g,
-      fiberPer100g: fiberPer100g,
-      sugarsPer100g: sugarsPer100g,
       date: date,
       mealType: mealType.index,
     );

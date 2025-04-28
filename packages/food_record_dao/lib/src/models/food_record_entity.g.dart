@@ -17,60 +17,25 @@ const FoodRecordEntitySchema = CollectionSchema(
   name: r'FoodRecordEntity',
   id: 3570831535597226385,
   properties: {
-    r'caloriesPer100g': PropertySchema(
-      id: 0,
-      name: r'caloriesPer100g',
-      type: IsarType.double,
-    ),
-    r'carbsPer100g': PropertySchema(
-      id: 1,
-      name: r'carbsPer100g',
-      type: IsarType.double,
-    ),
     r'date': PropertySchema(
-      id: 2,
+      id: 0,
       name: r'date',
       type: IsarType.dateTime,
     ),
-    r'fatPer100g': PropertySchema(
-      id: 3,
-      name: r'fatPer100g',
-      type: IsarType.double,
-    ),
-    r'fiberPer100g': PropertySchema(
-      id: 4,
-      name: r'fiberPer100g',
-      type: IsarType.double,
-    ),
     r'grams': PropertySchema(
-      id: 5,
+      id: 1,
       name: r'grams',
       type: IsarType.double,
     ),
     r'mealType': PropertySchema(
-      id: 6,
+      id: 2,
       name: r'mealType',
       type: IsarType.long,
     ),
     r'name': PropertySchema(
-      id: 7,
+      id: 3,
       name: r'name',
       type: IsarType.string,
-    ),
-    r'proteinPer100g': PropertySchema(
-      id: 8,
-      name: r'proteinPer100g',
-      type: IsarType.double,
-    ),
-    r'saturatedFatPer100g': PropertySchema(
-      id: 9,
-      name: r'saturatedFatPer100g',
-      type: IsarType.double,
-    ),
-    r'sugarsPer100g': PropertySchema(
-      id: 10,
-      name: r'sugarsPer100g',
-      type: IsarType.double,
     )
   },
   estimateSize: _foodRecordEntityEstimateSize,
@@ -103,17 +68,10 @@ void _foodRecordEntitySerialize(
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
-  writer.writeDouble(offsets[0], object.caloriesPer100g);
-  writer.writeDouble(offsets[1], object.carbsPer100g);
-  writer.writeDateTime(offsets[2], object.date);
-  writer.writeDouble(offsets[3], object.fatPer100g);
-  writer.writeDouble(offsets[4], object.fiberPer100g);
-  writer.writeDouble(offsets[5], object.grams);
-  writer.writeLong(offsets[6], object.mealType);
-  writer.writeString(offsets[7], object.name);
-  writer.writeDouble(offsets[8], object.proteinPer100g);
-  writer.writeDouble(offsets[9], object.saturatedFatPer100g);
-  writer.writeDouble(offsets[10], object.sugarsPer100g);
+  writer.writeDateTime(offsets[0], object.date);
+  writer.writeDouble(offsets[1], object.grams);
+  writer.writeLong(offsets[2], object.mealType);
+  writer.writeString(offsets[3], object.name);
 }
 
 FoodRecordEntity _foodRecordEntityDeserialize(
@@ -123,18 +81,11 @@ FoodRecordEntity _foodRecordEntityDeserialize(
   Map<Type, List<int>> allOffsets,
 ) {
   final object = FoodRecordEntity(
-    caloriesPer100g: reader.readDouble(offsets[0]),
-    carbsPer100g: reader.readDouble(offsets[1]),
-    date: reader.readDateTime(offsets[2]),
-    fatPer100g: reader.readDouble(offsets[3]),
-    fiberPer100g: reader.readDouble(offsets[4]),
-    grams: reader.readDouble(offsets[5]),
+    date: reader.readDateTime(offsets[0]),
+    grams: reader.readDouble(offsets[1]),
     id: id,
-    mealType: reader.readLong(offsets[6]),
-    name: reader.readString(offsets[7]),
-    proteinPer100g: reader.readDouble(offsets[8]),
-    saturatedFatPer100g: reader.readDouble(offsets[9]),
-    sugarsPer100g: reader.readDouble(offsets[10]),
+    mealType: reader.readLong(offsets[2]),
+    name: reader.readString(offsets[3]),
   );
   return object;
 }
@@ -147,27 +98,13 @@ P _foodRecordEntityDeserializeProp<P>(
 ) {
   switch (propertyId) {
     case 0:
-      return (reader.readDouble(offset)) as P;
+      return (reader.readDateTime(offset)) as P;
     case 1:
       return (reader.readDouble(offset)) as P;
     case 2:
-      return (reader.readDateTime(offset)) as P;
-    case 3:
-      return (reader.readDouble(offset)) as P;
-    case 4:
-      return (reader.readDouble(offset)) as P;
-    case 5:
-      return (reader.readDouble(offset)) as P;
-    case 6:
       return (reader.readLong(offset)) as P;
-    case 7:
+    case 3:
       return (reader.readString(offset)) as P;
-    case 8:
-      return (reader.readDouble(offset)) as P;
-    case 9:
-      return (reader.readDouble(offset)) as P;
-    case 10:
-      return (reader.readDouble(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
   }
@@ -266,138 +203,6 @@ extension FoodRecordEntityQueryWhere
 extension FoodRecordEntityQueryFilter
     on QueryBuilder<FoodRecordEntity, FoodRecordEntity, QFilterCondition> {
   QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
-      caloriesPer100gEqualTo(
-    double value, {
-    double epsilon = Query.epsilon,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'caloriesPer100g',
-        value: value,
-        epsilon: epsilon,
-      ));
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
-      caloriesPer100gGreaterThan(
-    double value, {
-    bool include = false,
-    double epsilon = Query.epsilon,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'caloriesPer100g',
-        value: value,
-        epsilon: epsilon,
-      ));
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
-      caloriesPer100gLessThan(
-    double value, {
-    bool include = false,
-    double epsilon = Query.epsilon,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'caloriesPer100g',
-        value: value,
-        epsilon: epsilon,
-      ));
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
-      caloriesPer100gBetween(
-    double lower,
-    double upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
-    double epsilon = Query.epsilon,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'caloriesPer100g',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-        epsilon: epsilon,
-      ));
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
-      carbsPer100gEqualTo(
-    double value, {
-    double epsilon = Query.epsilon,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'carbsPer100g',
-        value: value,
-        epsilon: epsilon,
-      ));
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
-      carbsPer100gGreaterThan(
-    double value, {
-    bool include = false,
-    double epsilon = Query.epsilon,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'carbsPer100g',
-        value: value,
-        epsilon: epsilon,
-      ));
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
-      carbsPer100gLessThan(
-    double value, {
-    bool include = false,
-    double epsilon = Query.epsilon,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'carbsPer100g',
-        value: value,
-        epsilon: epsilon,
-      ));
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
-      carbsPer100gBetween(
-    double lower,
-    double upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
-    double epsilon = Query.epsilon,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'carbsPer100g',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-        epsilon: epsilon,
-      ));
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
       dateEqualTo(DateTime value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
@@ -449,138 +254,6 @@ extension FoodRecordEntityQueryFilter
         includeLower: includeLower,
         upper: upper,
         includeUpper: includeUpper,
-      ));
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
-      fatPer100gEqualTo(
-    double value, {
-    double epsilon = Query.epsilon,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'fatPer100g',
-        value: value,
-        epsilon: epsilon,
-      ));
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
-      fatPer100gGreaterThan(
-    double value, {
-    bool include = false,
-    double epsilon = Query.epsilon,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'fatPer100g',
-        value: value,
-        epsilon: epsilon,
-      ));
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
-      fatPer100gLessThan(
-    double value, {
-    bool include = false,
-    double epsilon = Query.epsilon,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'fatPer100g',
-        value: value,
-        epsilon: epsilon,
-      ));
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
-      fatPer100gBetween(
-    double lower,
-    double upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
-    double epsilon = Query.epsilon,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'fatPer100g',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-        epsilon: epsilon,
-      ));
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
-      fiberPer100gEqualTo(
-    double value, {
-    double epsilon = Query.epsilon,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'fiberPer100g',
-        value: value,
-        epsilon: epsilon,
-      ));
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
-      fiberPer100gGreaterThan(
-    double value, {
-    bool include = false,
-    double epsilon = Query.epsilon,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'fiberPer100g',
-        value: value,
-        epsilon: epsilon,
-      ));
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
-      fiberPer100gLessThan(
-    double value, {
-    bool include = false,
-    double epsilon = Query.epsilon,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'fiberPer100g',
-        value: value,
-        epsilon: epsilon,
-      ));
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
-      fiberPer100gBetween(
-    double lower,
-    double upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
-    double epsilon = Query.epsilon,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'fiberPer100g',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-        epsilon: epsilon,
       ));
     });
   }
@@ -898,204 +571,6 @@ extension FoodRecordEntityQueryFilter
       ));
     });
   }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
-      proteinPer100gEqualTo(
-    double value, {
-    double epsilon = Query.epsilon,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'proteinPer100g',
-        value: value,
-        epsilon: epsilon,
-      ));
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
-      proteinPer100gGreaterThan(
-    double value, {
-    bool include = false,
-    double epsilon = Query.epsilon,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'proteinPer100g',
-        value: value,
-        epsilon: epsilon,
-      ));
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
-      proteinPer100gLessThan(
-    double value, {
-    bool include = false,
-    double epsilon = Query.epsilon,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'proteinPer100g',
-        value: value,
-        epsilon: epsilon,
-      ));
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
-      proteinPer100gBetween(
-    double lower,
-    double upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
-    double epsilon = Query.epsilon,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'proteinPer100g',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-        epsilon: epsilon,
-      ));
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
-      saturatedFatPer100gEqualTo(
-    double value, {
-    double epsilon = Query.epsilon,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'saturatedFatPer100g',
-        value: value,
-        epsilon: epsilon,
-      ));
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
-      saturatedFatPer100gGreaterThan(
-    double value, {
-    bool include = false,
-    double epsilon = Query.epsilon,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'saturatedFatPer100g',
-        value: value,
-        epsilon: epsilon,
-      ));
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
-      saturatedFatPer100gLessThan(
-    double value, {
-    bool include = false,
-    double epsilon = Query.epsilon,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'saturatedFatPer100g',
-        value: value,
-        epsilon: epsilon,
-      ));
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
-      saturatedFatPer100gBetween(
-    double lower,
-    double upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
-    double epsilon = Query.epsilon,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'saturatedFatPer100g',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-        epsilon: epsilon,
-      ));
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
-      sugarsPer100gEqualTo(
-    double value, {
-    double epsilon = Query.epsilon,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'sugarsPer100g',
-        value: value,
-        epsilon: epsilon,
-      ));
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
-      sugarsPer100gGreaterThan(
-    double value, {
-    bool include = false,
-    double epsilon = Query.epsilon,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'sugarsPer100g',
-        value: value,
-        epsilon: epsilon,
-      ));
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
-      sugarsPer100gLessThan(
-    double value, {
-    bool include = false,
-    double epsilon = Query.epsilon,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'sugarsPer100g',
-        value: value,
-        epsilon: epsilon,
-      ));
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterFilterCondition>
-      sugarsPer100gBetween(
-    double lower,
-    double upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
-    double epsilon = Query.epsilon,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'sugarsPer100g',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-        epsilon: epsilon,
-      ));
-    });
-  }
 }
 
 extension FoodRecordEntityQueryObject
@@ -1106,34 +581,6 @@ extension FoodRecordEntityQueryLinks
 
 extension FoodRecordEntityQuerySortBy
     on QueryBuilder<FoodRecordEntity, FoodRecordEntity, QSortBy> {
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
-      sortByCaloriesPer100g() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'caloriesPer100g', Sort.asc);
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
-      sortByCaloriesPer100gDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'caloriesPer100g', Sort.desc);
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
-      sortByCarbsPer100g() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'carbsPer100g', Sort.asc);
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
-      sortByCarbsPer100gDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'carbsPer100g', Sort.desc);
-    });
-  }
-
   QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy> sortByDate() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'date', Sort.asc);
@@ -1144,34 +591,6 @@ extension FoodRecordEntityQuerySortBy
       sortByDateDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'date', Sort.desc);
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
-      sortByFatPer100g() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'fatPer100g', Sort.asc);
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
-      sortByFatPer100gDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'fatPer100g', Sort.desc);
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
-      sortByFiberPer100g() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'fiberPer100g', Sort.asc);
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
-      sortByFiberPer100gDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'fiberPer100g', Sort.desc);
     });
   }
 
@@ -1214,80 +633,10 @@ extension FoodRecordEntityQuerySortBy
       return query.addSortBy(r'name', Sort.desc);
     });
   }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
-      sortByProteinPer100g() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'proteinPer100g', Sort.asc);
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
-      sortByProteinPer100gDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'proteinPer100g', Sort.desc);
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
-      sortBySaturatedFatPer100g() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'saturatedFatPer100g', Sort.asc);
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
-      sortBySaturatedFatPer100gDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'saturatedFatPer100g', Sort.desc);
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
-      sortBySugarsPer100g() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'sugarsPer100g', Sort.asc);
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
-      sortBySugarsPer100gDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'sugarsPer100g', Sort.desc);
-    });
-  }
 }
 
 extension FoodRecordEntityQuerySortThenBy
     on QueryBuilder<FoodRecordEntity, FoodRecordEntity, QSortThenBy> {
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
-      thenByCaloriesPer100g() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'caloriesPer100g', Sort.asc);
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
-      thenByCaloriesPer100gDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'caloriesPer100g', Sort.desc);
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
-      thenByCarbsPer100g() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'carbsPer100g', Sort.asc);
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
-      thenByCarbsPer100gDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'carbsPer100g', Sort.desc);
-    });
-  }
-
   QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy> thenByDate() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'date', Sort.asc);
@@ -1298,34 +647,6 @@ extension FoodRecordEntityQuerySortThenBy
       thenByDateDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'date', Sort.desc);
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
-      thenByFatPer100g() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'fatPer100g', Sort.asc);
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
-      thenByFatPer100gDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'fatPer100g', Sort.desc);
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
-      thenByFiberPer100g() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'fiberPer100g', Sort.asc);
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
-      thenByFiberPer100gDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'fiberPer100g', Sort.desc);
     });
   }
 
@@ -1381,83 +702,13 @@ extension FoodRecordEntityQuerySortThenBy
       return query.addSortBy(r'name', Sort.desc);
     });
   }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
-      thenByProteinPer100g() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'proteinPer100g', Sort.asc);
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
-      thenByProteinPer100gDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'proteinPer100g', Sort.desc);
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
-      thenBySaturatedFatPer100g() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'saturatedFatPer100g', Sort.asc);
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
-      thenBySaturatedFatPer100gDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'saturatedFatPer100g', Sort.desc);
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
-      thenBySugarsPer100g() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'sugarsPer100g', Sort.asc);
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QAfterSortBy>
-      thenBySugarsPer100gDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'sugarsPer100g', Sort.desc);
-    });
-  }
 }
 
 extension FoodRecordEntityQueryWhereDistinct
     on QueryBuilder<FoodRecordEntity, FoodRecordEntity, QDistinct> {
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QDistinct>
-      distinctByCaloriesPer100g() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'caloriesPer100g');
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QDistinct>
-      distinctByCarbsPer100g() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'carbsPer100g');
-    });
-  }
-
   QueryBuilder<FoodRecordEntity, FoodRecordEntity, QDistinct> distinctByDate() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'date');
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QDistinct>
-      distinctByFatPer100g() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'fatPer100g');
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QDistinct>
-      distinctByFiberPer100g() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'fiberPer100g');
     });
   }
 
@@ -1481,27 +732,6 @@ extension FoodRecordEntityQueryWhereDistinct
       return query.addDistinctBy(r'name', caseSensitive: caseSensitive);
     });
   }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QDistinct>
-      distinctByProteinPer100g() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'proteinPer100g');
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QDistinct>
-      distinctBySaturatedFatPer100g() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'saturatedFatPer100g');
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, FoodRecordEntity, QDistinct>
-      distinctBySugarsPer100g() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'sugarsPer100g');
-    });
-  }
 }
 
 extension FoodRecordEntityQueryProperty
@@ -1512,37 +742,9 @@ extension FoodRecordEntityQueryProperty
     });
   }
 
-  QueryBuilder<FoodRecordEntity, double, QQueryOperations>
-      caloriesPer100gProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'caloriesPer100g');
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, double, QQueryOperations>
-      carbsPer100gProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'carbsPer100g');
-    });
-  }
-
   QueryBuilder<FoodRecordEntity, DateTime, QQueryOperations> dateProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'date');
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, double, QQueryOperations>
-      fatPer100gProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'fatPer100g');
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, double, QQueryOperations>
-      fiberPer100gProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'fiberPer100g');
     });
   }
 
@@ -1561,27 +763,6 @@ extension FoodRecordEntityQueryProperty
   QueryBuilder<FoodRecordEntity, String, QQueryOperations> nameProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'name');
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, double, QQueryOperations>
-      proteinPer100gProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'proteinPer100g');
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, double, QQueryOperations>
-      saturatedFatPer100gProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'saturatedFatPer100g');
-    });
-  }
-
-  QueryBuilder<FoodRecordEntity, double, QQueryOperations>
-      sugarsPer100gProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'sugarsPer100g');
     });
   }
 }

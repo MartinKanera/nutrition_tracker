@@ -532,7 +532,7 @@ mixin _$OverviewState {
     required TResult Function(DateTime date) loading,
     required TResult Function(
             DateTime date,
-            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
+            Map<MealType, List<FoodRecordWithNutrition>> foodGroupedByMealType,
             OverviewStatistics statistics)
         success,
     required TResult Function(DateTime date, OverviewIssue issue) failure,
@@ -544,7 +544,7 @@ mixin _$OverviewState {
     TResult? Function(DateTime date)? loading,
     TResult? Function(
             DateTime date,
-            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
+            Map<MealType, List<FoodRecordWithNutrition>> foodGroupedByMealType,
             OverviewStatistics statistics)?
         success,
     TResult? Function(DateTime date, OverviewIssue issue)? failure,
@@ -556,7 +556,7 @@ mixin _$OverviewState {
     TResult Function(DateTime date)? loading,
     TResult Function(
             DateTime date,
-            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
+            Map<MealType, List<FoodRecordWithNutrition>> foodGroupedByMealType,
             OverviewStatistics statistics)?
         success,
     TResult Function(DateTime date, OverviewIssue issue)? failure,
@@ -697,7 +697,7 @@ class _$InitialStateImpl implements InitialState {
     required TResult Function(DateTime date) loading,
     required TResult Function(
             DateTime date,
-            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
+            Map<MealType, List<FoodRecordWithNutrition>> foodGroupedByMealType,
             OverviewStatistics statistics)
         success,
     required TResult Function(DateTime date, OverviewIssue issue) failure,
@@ -712,7 +712,7 @@ class _$InitialStateImpl implements InitialState {
     TResult? Function(DateTime date)? loading,
     TResult? Function(
             DateTime date,
-            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
+            Map<MealType, List<FoodRecordWithNutrition>> foodGroupedByMealType,
             OverviewStatistics statistics)?
         success,
     TResult? Function(DateTime date, OverviewIssue issue)? failure,
@@ -727,7 +727,7 @@ class _$InitialStateImpl implements InitialState {
     TResult Function(DateTime date)? loading,
     TResult Function(
             DateTime date,
-            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
+            Map<MealType, List<FoodRecordWithNutrition>> foodGroupedByMealType,
             OverviewStatistics statistics)?
         success,
     TResult Function(DateTime date, OverviewIssue issue)? failure,
@@ -859,7 +859,7 @@ class _$LoadingStateImpl implements LoadingState {
     required TResult Function(DateTime date) loading,
     required TResult Function(
             DateTime date,
-            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
+            Map<MealType, List<FoodRecordWithNutrition>> foodGroupedByMealType,
             OverviewStatistics statistics)
         success,
     required TResult Function(DateTime date, OverviewIssue issue) failure,
@@ -874,7 +874,7 @@ class _$LoadingStateImpl implements LoadingState {
     TResult? Function(DateTime date)? loading,
     TResult? Function(
             DateTime date,
-            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
+            Map<MealType, List<FoodRecordWithNutrition>> foodGroupedByMealType,
             OverviewStatistics statistics)?
         success,
     TResult? Function(DateTime date, OverviewIssue issue)? failure,
@@ -889,7 +889,7 @@ class _$LoadingStateImpl implements LoadingState {
     TResult Function(DateTime date)? loading,
     TResult Function(
             DateTime date,
-            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
+            Map<MealType, List<FoodRecordWithNutrition>> foodGroupedByMealType,
             OverviewStatistics statistics)?
         success,
     TResult Function(DateTime date, OverviewIssue issue)? failure,
@@ -961,7 +961,7 @@ abstract class _$$SuccessStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {DateTime date,
-      Map<MealType, List<FoodRecord>> foodGroupedByMealType,
+      Map<MealType, List<FoodRecordWithNutrition>> foodGroupedByMealType,
       OverviewStatistics statistics});
 }
 
@@ -988,7 +988,7 @@ class __$$SuccessStateImplCopyWithImpl<$Res>
       foodGroupedByMealType: null == foodGroupedByMealType
           ? _value._foodGroupedByMealType
           : foodGroupedByMealType // ignore: cast_nullable_to_non_nullable
-              as Map<MealType, List<FoodRecord>>,
+              as Map<MealType, List<FoodRecordWithNutrition>>,
       statistics: null == statistics
           ? _value.statistics
           : statistics // ignore: cast_nullable_to_non_nullable
@@ -1002,15 +1002,16 @@ class __$$SuccessStateImplCopyWithImpl<$Res>
 class _$SuccessStateImpl implements SuccessState {
   const _$SuccessStateImpl(
       {required this.date,
-      required final Map<MealType, List<FoodRecord>> foodGroupedByMealType,
+      required final Map<MealType, List<FoodRecordWithNutrition>>
+          foodGroupedByMealType,
       required this.statistics})
       : _foodGroupedByMealType = foodGroupedByMealType;
 
   @override
   final DateTime date;
-  final Map<MealType, List<FoodRecord>> _foodGroupedByMealType;
+  final Map<MealType, List<FoodRecordWithNutrition>> _foodGroupedByMealType;
   @override
-  Map<MealType, List<FoodRecord>> get foodGroupedByMealType {
+  Map<MealType, List<FoodRecordWithNutrition>> get foodGroupedByMealType {
     if (_foodGroupedByMealType is EqualUnmodifiableMapView)
       return _foodGroupedByMealType;
     // ignore: implicit_dynamic_type
@@ -1054,7 +1055,7 @@ class _$SuccessStateImpl implements SuccessState {
     required TResult Function(DateTime date) loading,
     required TResult Function(
             DateTime date,
-            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
+            Map<MealType, List<FoodRecordWithNutrition>> foodGroupedByMealType,
             OverviewStatistics statistics)
         success,
     required TResult Function(DateTime date, OverviewIssue issue) failure,
@@ -1069,7 +1070,7 @@ class _$SuccessStateImpl implements SuccessState {
     TResult? Function(DateTime date)? loading,
     TResult? Function(
             DateTime date,
-            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
+            Map<MealType, List<FoodRecordWithNutrition>> foodGroupedByMealType,
             OverviewStatistics statistics)?
         success,
     TResult? Function(DateTime date, OverviewIssue issue)? failure,
@@ -1084,7 +1085,7 @@ class _$SuccessStateImpl implements SuccessState {
     TResult Function(DateTime date)? loading,
     TResult Function(
             DateTime date,
-            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
+            Map<MealType, List<FoodRecordWithNutrition>> foodGroupedByMealType,
             OverviewStatistics statistics)?
         success,
     TResult Function(DateTime date, OverviewIssue issue)? failure,
@@ -1137,12 +1138,13 @@ class _$SuccessStateImpl implements SuccessState {
 abstract class SuccessState implements OverviewState {
   const factory SuccessState(
       {required final DateTime date,
-      required final Map<MealType, List<FoodRecord>> foodGroupedByMealType,
+      required final Map<MealType, List<FoodRecordWithNutrition>>
+          foodGroupedByMealType,
       required final OverviewStatistics statistics}) = _$SuccessStateImpl;
 
   @override
   DateTime get date;
-  Map<MealType, List<FoodRecord>> get foodGroupedByMealType;
+  Map<MealType, List<FoodRecordWithNutrition>> get foodGroupedByMealType;
   OverviewStatistics get statistics;
   @override
   @JsonKey(ignore: true)
@@ -1228,7 +1230,7 @@ class _$FailureStateImpl implements FailureState {
     required TResult Function(DateTime date) loading,
     required TResult Function(
             DateTime date,
-            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
+            Map<MealType, List<FoodRecordWithNutrition>> foodGroupedByMealType,
             OverviewStatistics statistics)
         success,
     required TResult Function(DateTime date, OverviewIssue issue) failure,
@@ -1243,7 +1245,7 @@ class _$FailureStateImpl implements FailureState {
     TResult? Function(DateTime date)? loading,
     TResult? Function(
             DateTime date,
-            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
+            Map<MealType, List<FoodRecordWithNutrition>> foodGroupedByMealType,
             OverviewStatistics statistics)?
         success,
     TResult? Function(DateTime date, OverviewIssue issue)? failure,
@@ -1258,7 +1260,7 @@ class _$FailureStateImpl implements FailureState {
     TResult Function(DateTime date)? loading,
     TResult Function(
             DateTime date,
-            Map<MealType, List<FoodRecord>> foodGroupedByMealType,
+            Map<MealType, List<FoodRecordWithNutrition>> foodGroupedByMealType,
             OverviewStatistics statistics)?
         success,
     TResult Function(DateTime date, OverviewIssue issue)? failure,

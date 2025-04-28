@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_api_repository/food_api_repository.dart';
 import 'package:food_record_repository/food_record_repository.dart';
 import 'package:nutrition_tracker/l10n/l10n.dart';
 
@@ -23,26 +25,59 @@ class FoodRecordForm extends StatefulWidget {
 class _FoodRecordFormState extends State<FoodRecordForm> {
   late TextEditingController _gramsController;
   late double _grams;
+  FoodNutrients? _nutrients;
+  bool _isLoading = true;
+  String? _errorMessage;
 
   @override
   void initState() {
     super.initState();
     _grams = widget.foodRecord.grams;
     _gramsController = TextEditingController(text: '$_grams');
+    _fetchNutrients();
+  }
+  
+  Future<void> _fetchNutrients() async {
+    setState(() {
+      _isLoading = true;
+      _errorMessage = null;
+    });
+    
+    try {
+      final repository = context.read<NutritionixFoodApiRepository>();
+      final nutrients = await repository.getFoodNutrients(widget.foodRecord.name);
+      setState(() {
+        _nutrients = nutrients;
+        _isLoading = false;
+      });
+    } catch (e) {
+      setState(() {
+        _errorMessage = 'Failed to load nutrition data: ${e.toString()}';
+        _isLoading = false;
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    final scaledCalories = (widget.foodRecord.caloriesPer100g * _grams) / 100;
-    final scaledProtein = (widget.foodRecord.proteinPer100g * _grams) / 100;
-    final scaledCarbs = (widget.foodRecord.carbsPer100g * _grams) / 100;
-    final scaledFat = (widget.foodRecord.fatPer100g * _grams) / 100;
+    // If we have nutrients, calculate scaled values based on portion size change
+    double? scaledCalories;
+    double? scaledProtein;
+    double? scaledCarbs;
+    double? scaledFat;
+    
+    if (_nutrients != null) {
+      final scale = _grams / _nutrients!.grams;
+      scaledCalories = _nutrients!.calories * scale;
+      scaledProtein = _nutrients!.protein * scale;
+      scaledCarbs = _nutrients!.carbs * scale;
+      scaledFat = _nutrients!.fat * scale;
+    }
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        spacing: 16,
         children: [
           Text(
             widget.foodRecord.name,
@@ -50,6 +85,7 @@ class _FoodRecordFormState extends State<FoodRecordForm> {
                   fontWeight: FontWeight.bold,
                 ),
           ),
+          const SizedBox(height: 16),
           TextField(
             controller: _gramsController,
             keyboardType: TextInputType.number,
@@ -63,83 +99,80 @@ class _FoodRecordFormState extends State<FoodRecordForm> {
               }
             },
           ),
-          Row(
-            children: [
-              Text(
-                context.l10n.calories,
-                style: Theme.of(context)
-                    .textTheme
-                    .labelLarge
-                    ?.copyWith(fontWeight: FontWeight.bold),
-              ),
-              const Spacer(),
-              Text('${scaledCalories.toStringAsFixed(0)} kcal'),
-            ],
-          ),
-          Row(
-            children: [
-              Text(
-                context.l10n.protein,
-                style: Theme.of(context)
-                    .textTheme
-                    .labelLarge
-                    ?.copyWith(fontWeight: FontWeight.bold),
-              ),
-              const Spacer(),
-              Text('${scaledProtein.toStringAsFixed(1)} g'),
-            ],
-          ),
-          Row(
-            children: [
-              Text(
-                context.l10n.carbohydrates,
-                style: Theme.of(context)
-                    .textTheme
-                    .labelLarge
-                    ?.copyWith(fontWeight: FontWeight.bold),
-              ),
-              const Spacer(),
-              Text('${scaledCarbs.toStringAsFixed(1)} g'),
-            ],
-          ),
-          Row(
-            children: [
-              Text(
-                context.l10n.fats,
-                style: Theme.of(context)
-                    .textTheme
-                    .labelLarge
-                    ?.copyWith(fontWeight: FontWeight.bold),
-              ),
-              const Spacer(),
-              Text('${scaledFat.toStringAsFixed(1)} g'),
-            ],
-          ),
+          const SizedBox(height: 24),
+          
+          if (_isLoading)
+            const Center(child: CircularProgressIndicator())
+          else if (_errorMessage != null)
+            Text(_errorMessage!, style: TextStyle(color: Colors.red))
+          else if (_nutrients != null) ...[  
+            Row(
+              children: [
+                Text(
+                  context.l10n.calories,
+                  style: Theme.of(context)
+                      .textTheme
+                      .labelLarge
+                      ?.copyWith(fontWeight: FontWeight.bold),
+                ),
+                const Spacer(),
+                Text('${scaledCalories!.toStringAsFixed(0)} kcal'),
+              ],
+            ),
+            const SizedBox(height: 8),
+            Row(
+              children: [
+                Text(
+                  context.l10n.protein,
+                  style: Theme.of(context)
+                      .textTheme
+                      .labelLarge
+                      ?.copyWith(fontWeight: FontWeight.bold),
+                ),
+                const Spacer(),
+                Text('${scaledProtein!.toStringAsFixed(1)} g'),
+              ],
+            ),
+            const SizedBox(height: 8),
+            Row(
+              children: [
+                Text(
+                  context.l10n.carbohydrates,
+                  style: Theme.of(context)
+                      .textTheme
+                      .labelLarge
+                      ?.copyWith(fontWeight: FontWeight.bold),
+                ),
+                const Spacer(),
+                Text('${scaledCarbs!.toStringAsFixed(1)} g'),
+              ],
+            ),
+            const SizedBox(height: 8),
+            Row(
+              children: [
+                Text(
+                  context.l10n.fats,
+                  style: Theme.of(context)
+                      .textTheme
+                      .labelLarge
+                      ?.copyWith(fontWeight: FontWeight.bold),
+                ),
+                const Spacer(),
+                Text('${scaledFat!.toStringAsFixed(1)} g'),
+              ],
+            ),
+          ],
+          
           const Spacer(),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               minimumSize: const Size(double.infinity, 50),
             ),
-            onPressed: () {
+            onPressed: _isLoading || _errorMessage != null ? null : () {
               final record = FoodRecord(
                 id: widget.foodRecord.id,
                 name: widget.foodRecord.name,
-                calories: scaledCalories,
-                protein: scaledProtein,
-                carbs: scaledCarbs,
-                fat: scaledFat,
                 grams: _grams,
-                caloriesPer100g: widget.foodRecord.caloriesPer100g,
-                proteinPer100g: widget.foodRecord.proteinPer100g,
-                carbsPer100g: widget.foodRecord.carbsPer100g,
-                fatPer100g: widget.foodRecord.fatPer100g,
-                fiberPer100g: widget.foodRecord.fiberPer100g,
-                sugarsPer100g: widget.foodRecord.sugarsPer100g,
-                saturatedFatPer100g: widget.foodRecord.saturatedFatPer100g,
-                fiber: scaledFat,
-                sugars: scaledCarbs,
-                saturatedFat: scaledFat,
-                // Maybe allow changes through the form
                 date: widget.date,
                 mealType: widget.mealType,
               );

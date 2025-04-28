@@ -15,7 +15,7 @@ class MealSectionCard extends StatelessWidget {
   });
 
   final String title;
-  final List<FoodRecord> foodRecords;
+  final List<FoodRecordWithNutrition> foodRecords;
   final MealType mealType;
 
   @override
@@ -60,7 +60,7 @@ class MealSectionCard extends StatelessWidget {
                       Text(
                         foodRecords.isEmpty
                             ? '0 kcal'
-                            : '${foodRecords.map((r) => r.calories).reduce(
+                            : '${foodRecords.map((r) => r.nutrients.calories).reduce(
                                   (a, b) => a + b,
                                 ).toStringAsFixed(0)} kcal',
                       ),
@@ -77,7 +77,7 @@ class MealSectionCard extends StatelessWidget {
                     final foodRecord = entry.value;
                     final isLastItem = index == foodRecords.length - 1;
                     return Dismissible(
-                      key: ValueKey(foodRecord.id),
+                      key: ValueKey(foodRecord.record.id),
                       direction: DismissDirection.endToStart,
                       background: Container(
                         decoration: BoxDecoration(
@@ -99,7 +99,7 @@ class MealSectionCard extends StatelessWidget {
                       onDismissed: (_) {
                         context.read<OverviewBloc>().add(
                               OverviewEvent.deleteFoodRecord(
-                                foodRecord: foodRecord,
+                                foodRecord: foodRecord.record,
                               ),
                             );
                       },
@@ -123,7 +123,7 @@ class MealSectionCard extends StatelessWidget {
                               builder: (context) => FoodRecordForm(
                                 date: bloc.state.date,
                                 mealType: mealType,
-                                foodRecord: foodRecord,
+                                foodRecord: foodRecord.record,
                                 onSubmit: (record) {
                                   bloc.add(
                                     OverviewEvent.updateFoodRecord(
@@ -144,13 +144,13 @@ class MealSectionCard extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      foodRecord.name,
+                                      foodRecord.nutrients.name,
                                       style: Theme.of(context)
                                           .textTheme
                                           .labelLarge,
                                     ),
                                     Text(
-                                      '${foodRecord.grams.toStringAsFixed(0)}g',
+                                      '${foodRecord.record.grams.toStringAsFixed(0)}g',
                                       style: Theme.of(context)
                                           .textTheme
                                           .labelSmall,
@@ -159,7 +159,7 @@ class MealSectionCard extends StatelessWidget {
                                 ),
                                 const Spacer(),
                                 Text(
-                                  '${foodRecord.calories.toStringAsFixed(0)} kcal',
+                                  '${foodRecord.nutrients.calories.toStringAsFixed(0)} kcal',
                                 ),
                               ],
                             ),

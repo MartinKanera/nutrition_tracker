@@ -51,7 +51,7 @@ sealed class OverviewState with _$OverviewState {
   }) = LoadingState;
   const factory OverviewState.success({
     required DateTime date,
-    required Map<MealType, List<FoodRecord>> foodGroupedByMealType,
+    required Map<MealType, List<FoodRecordWithNutrition>> foodGroupedByMealType,
     required OverviewStatistics statistics,
   }) = SuccessState;
   const factory OverviewState.failure({

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:collection/collection.dart';
+import 'package:food_api_repository/food_api_repository.dart';
 import 'package:food_record_repository/food_record_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:nutrition_tracker/extensions/date_time_extensions.dart';
@@ -16,6 +17,7 @@ class OverviewBloc extends Bloc<OverviewEvent, OverviewState> {
   OverviewBloc({
     required this.foodRecordRepository,
     required this.userMeasurementRepository,
+    required this.nutritionixFoodApiRepository,
   }) : super(OverviewState.initial(date: DateTimeExtensions.todayStripped())) {
     on<_DayChanged>(_onDayChanged);
     on<_UpdateFoodRecord>(_onUpdateFoodRecord);
@@ -24,6 +26,7 @@ class OverviewBloc extends Bloc<OverviewEvent, OverviewState> {
 
   final FoodRecordRepository foodRecordRepository;
   final UserMeasurementRepository userMeasurementRepository;
+  final NutritionixFoodApiRepository nutritionixFoodApiRepository;
 
   double _calculateTDEE(UserMeasurement userMeasurement) {
     final weight = userMeasurement.weight;
@@ -44,25 +47,26 @@ class OverviewBloc extends Bloc<OverviewEvent, OverviewState> {
   }
 
   OverviewStatistics _resolveStatistics(
-    List<FoodRecord> records,
+    List<FoodRecordWithNutrition> records,
     UserMeasurement userMeasurement,
   ) {
     final expectedCalories = _calculateTDEE(userMeasurement);
 
     return OverviewStatistics(
-      consumedCalories:
-          records.fold<double>(0, (sum, record) => sum + record.calories),
-      consumedProtein:
-          records.fold<double>(0, (sum, record) => sum + record.protein),
-      consumedCarbs:
-          records.fold<double>(0, (sum, record) => sum + record.carbs),
-      consumedFat: records.fold<double>(0, (sum, record) => sum + record.fat),
-      consumedSaturatedFat:
-          records.fold<double>(0, (sum, record) => sum + record.saturatedFat),
-      consumedFiber:
-          records.fold<double>(0, (sum, record) => sum + record.fiber),
-      consumedSugars:
-          records.fold<double>(0, (sum, record) => sum + record.sugars),
+      consumedCalories: records.fold<double>(
+          0, (sum, record) => sum + record.nutrients.calories),
+      consumedProtein: records.fold<double>(
+          0, (sum, record) => sum + record.nutrients.protein),
+      consumedCarbs: records.fold<double>(
+          0, (sum, record) => sum + record.nutrients.carbs),
+      consumedFat:
+          records.fold<double>(0, (sum, record) => sum + record.nutrients.fat),
+      consumedSaturatedFat: records.fold<double>(
+          0, (sum, record) => sum + record.nutrients.saturatedFat),
+      consumedFiber: records.fold<double>(
+          0, (sum, record) => sum + record.nutrients.fiber),
+      consumedSugars: records.fold<double>(
+          0, (sum, record) => sum + record.nutrients.sugars),
       expectedCalories: expectedCalories,
       expectedProtein: 0.25 * expectedCalories / 4,
       expectedCarbs: 0.5 * expectedCalories / 4,
@@ -92,16 +96,31 @@ class OverviewBloc extends Bloc<OverviewEvent, OverviewState> {
       return;
     }
 
+    final enrichedFoodStream =
+        foodRecordRepository.watchFoodForDay(event.date).asyncMap(
+      (records) async {
+        return Future.wait(
+          records.map((r) async {
+            final nutrition =
+                await nutritionixFoodApiRepository.getFoodNutrients(r.name);
+            return FoodRecordWithNutrition(record: r, nutrients: nutrition);
+          }),
+        );
+      },
+    );
+
     await emit.forEach(
-      foodRecordRepository.watchFoodForDay(event.date),
+      enrichedFoodStream,
       onData: (records) {
+        final statistics = _resolveStatistics(
+          records,
+          userMeasurement,
+        );
+
         return OverviewState.success(
           date: event.date,
-          foodGroupedByMealType: groupBy(
-            records,
-            (record) => record.mealType,
-          ),
-          statistics: _resolveStatistics(records, userMeasurement),
+          statistics: statistics,
+          foodGroupedByMealType: groupBy(records, (r) => r.record.mealType),
         );
       },
     );
